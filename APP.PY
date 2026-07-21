@@ -1,3 +1,7 @@
+import chromadb
+import ollama
+from ollama import Client
+client = Client()
 import streamlit as st
 from pathlib import Path
 import pandas as pd
@@ -12,6 +16,19 @@ COLOR_TIPO = {
     "ground": "#E2BF65", "flying": "#A98FF3", "psychic": "#F95587", "bug": "#A6B91A",
     "rock": "#B6A136", "ghost": "#735797", "dragon": "#6F35FC", "dark": "#705746",
     "steel": "#B7B7CE", "fairy": "#D685AD"}
+
+# CINSTANTES DEL RAG    
+
+MODELO_EMBEDDINGS = "embbedinggemma"
+
+MODELO_CLOUD = "GPT-OSS:120B"
+
+MODELO_LOCAL = "qwen3.5:latest "
+
+K_FICHAS = 4
+
+SYSTEM_CHAT = """Eres el asistente de una Pokedex. Respondes preguntas sobre los 151 pokemon originales.REGLAS ESTRICTAS:1. Responde UNICAMENTE con la informacion de las FICHAS que se te proporcionan.2. Si la respuesta no esta en las fichas, di exactamente: "No tengo esa informacion en la Pokedex."3. Cuando des un dato, di de que pokemon lo sacas.Responde en espanol, breve"""
+
 
 def oscurece(hex_color, factor=0.65):                # devuelve una versión más oscura de un color (para el degradado)
     h = hex_color.lstrip("#")                        # "#EE8130" -> "EE8130"
@@ -28,6 +45,31 @@ def cargar():
     return pd.read_csv(Path(__file__).parent / "pokemon.csv")
 
 df = cargar()
+
+@st.cache_resource
+def conectar_indice():
+    """Abre el indice vectorial creado por preparar_corpus.py"""
+    ruta = Path(__file__).parent / "chroma_pokedex"
+    if not ruta.exists():
+        st.error("No se ha encontrado el índice vectorial. Ejecuta primero preparar_corpus.py")
+        st.stop()
+    cliente = chromadb.PersistentClient(path=str(ruta))
+    return cliente.get_collection("fichas_pokemon")    
+
+def buscar_fichas(pregunta, k=K_FICHAS):
+    """Recupera las k fichas más relevantes para la pregunta, usando el índice vectorial"""
+    vector = ollama.embed(
+        model=MODELO_EMBEDDINGS,
+        input=f"task: search result | query: {pregunta}",
+    )["embeddings"]
+
+    resultados = conectar_indice().query(query_embeddings=vector, n_results=k)
+
+    nombres = [m["nombre"] for m in resultados["metadatas"][0]]
+    textos = resultados["documents"][0]
+    return list(zip(nombres, textos))  # [(nombre1, texto1), (
+
+
 
 st.sidebar.title("Filtros")
 busca = st.sidebar.text_input("Busca por nombre", placeholder="Ejemplo: Pikachu")
@@ -128,4 +170,7 @@ with tab_inicio:
     </div>
     """, unsafe_allow_html=True)
 
-    
+    with tab_chat:
+
+        _, _, etiqueta_modelo = elegir_llm()
+    st.caption(f"💬 Modelo de chat: {etiqueta_modelo}")
