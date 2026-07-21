@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly
+requests
+ollama>=0.4
+chromadb>=0.5

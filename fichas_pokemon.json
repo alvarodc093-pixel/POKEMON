@@ -1,0 +1,757 @@
+[
+  {
+    "id": 1,
+    "nombre": "Bulbasaur",
+    "texto": "Bulbasaur es el pokemon numero 1. Es de tipo grass y poison. Estadisticas de Bulbasaur: 45 puntos de salud (HP), 49 de ataque, 49 de defensa, 65 de ataque especial, 65 de defensa especial y 45 de velocidad. Total de estadisticas: 318. Mide 0.7 metros y pesa 6.9 kilos. Descripcion de la Pokedex: Una rara semilla le fue plantada en el lomo al nacer. La planta brota y crece con este Pokémon."
+  },
+  {
+    "id": 2,
+    "nombre": "Ivysaur",
+    "texto": "Ivysaur es el pokemon numero 2. Es de tipo grass y poison. Estadisticas de Ivysaur: 60 puntos de salud (HP), 62 de ataque, 63 de defensa, 80 de ataque especial, 80 de defensa especial y 60 de velocidad. Total de estadisticas: 405. Mide 1.0 metros y pesa 13.0 kilos. Descripcion de la Pokedex: Este Pokémon tiene un bulbo en el lomo. Dicen que, al absorber nutrientes, el bulbo se transforma en una flor grande."
+  },
+  {
+    "id": 3,
+    "nombre": "Venusaur",
+    "texto": "Venusaur es el pokemon numero 3. Es de tipo grass y poison. Estadisticas de Venusaur: 80 puntos de salud (HP), 82 de ataque, 83 de defensa, 100 de ataque especial, 100 de defensa especial y 80 de velocidad. Total de estadisticas: 525. Mide 2.0 metros y pesa 100.0 kilos. Descripcion de la Pokedex: Llena su cuerpo de energía con los rayos solares que captan los anchos pétalos de su flor."
+  },
+  {
+    "id": 4,
+    "nombre": "Charmander",
+    "texto": "Charmander es el pokemon numero 4. Es de tipo fire. Estadisticas de Charmander: 39 puntos de salud (HP), 52 de ataque, 43 de defensa, 60 de ataque especial, 50 de defensa especial y 65 de velocidad. Total de estadisticas: 309. Mide 0.6 metros y pesa 8.5 kilos. Descripcion de la Pokedex: La llama de su cola indica la fuerza vital de Charmander. Será brillante si está sano."
+  },
+  {
+    "id": 5,
+    "nombre": "Charmeleon",
+    "texto": "Charmeleon es el pokemon numero 5. Es de tipo fire. Estadisticas de Charmeleon: 58 puntos de salud (HP), 64 de ataque, 58 de defensa, 80 de ataque especial, 65 de defensa especial y 80 de velocidad. Total de estadisticas: 405. Mide 1.1 metros y pesa 19.0 kilos. Descripcion de la Pokedex: Suele usar la cola para derribar a su rival. Cuando lo tira, se vale de sus afiladas garras para acabar con él."
+  },
+  {
+    "id": 6,
+    "nombre": "Charizard",
+    "texto": "Charizard es el pokemon numero 6. Es de tipo fire y flying. Estadisticas de Charizard: 78 puntos de salud (HP), 84 de ataque, 78 de defensa, 109 de ataque especial, 85 de defensa especial y 100 de velocidad. Total de estadisticas: 534. Mide 1.7 metros y pesa 90.5 kilos. Descripcion de la Pokedex: Cuando lanza una descarga de fuego supercaliente, la roja llama de su cola brilla más intensamente."
+  },
+  {
+    "id": 7,
+    "nombre": "Squirtle",
+    "texto": "Squirtle es el pokemon numero 7. Es de tipo water. Estadisticas de Squirtle: 44 puntos de salud (HP), 48 de ataque, 65 de defensa, 50 de ataque especial, 64 de defensa especial y 43 de velocidad. Total de estadisticas: 314. Mide 0.5 metros y pesa 9.0 kilos. Descripcion de la Pokedex: Se protege con su caparazón y luego contraataca lanzando agua a presión cuando tiene oportunidad."
+  },
+  {
+    "id": 8,
+    "nombre": "Wartortle",
+    "texto": "Wartortle es el pokemon numero 8. Es de tipo water. Estadisticas de Wartortle: 59 puntos de salud (HP), 63 de ataque, 80 de defensa, 65 de ataque especial, 80 de defensa especial y 58 de velocidad. Total de estadisticas: 405. Mide 1.0 metros y pesa 22.5 kilos. Descripcion de la Pokedex: Si es golpeado, esconderá su cabeza. Aun así, su cola puede seguir golpeando."
+  },
+  {
+    "id": 9,
+    "nombre": "Blastoise",
+    "texto": "Blastoise es el pokemon numero 9. Es de tipo water. Estadisticas de Blastoise: 79 puntos de salud (HP), 83 de ataque, 100 de defensa, 85 de ataque especial, 105 de defensa especial y 78 de velocidad. Total de estadisticas: 530. Mide 1.6 metros y pesa 85.5 kilos. Descripcion de la Pokedex: Para acabar con su enemigo, lo aplasta con el peso de su cuerpo. En momentos de apuro, se esconde en el caparazón."
+  },
+  {
+    "id": 10,
+    "nombre": "Caterpie",
+    "texto": "Caterpie es el pokemon numero 10. Es de tipo bug. Estadisticas de Caterpie: 45 puntos de salud (HP), 30 de ataque, 35 de defensa, 20 de ataque especial, 20 de defensa especial y 45 de velocidad. Total de estadisticas: 195. Mide 0.3 metros y pesa 2.9 kilos. Descripcion de la Pokedex: Para protegerse despide un hedor horrible de sus antenas, con el que repele a sus enemigos."
+  },
+  {
+    "id": 11,
+    "nombre": "Metapod",
+    "texto": "Metapod es el pokemon numero 11. Es de tipo bug. Estadisticas de Metapod: 50 puntos de salud (HP), 20 de ataque, 55 de defensa, 25 de ataque especial, 25 de defensa especial y 30 de velocidad. Total de estadisticas: 205. Mide 0.7 metros y pesa 9.9 kilos. Descripcion de la Pokedex: Su frágil cuerpo está recubierto de una coraza dura como el acero. Permanece quieto en su desarrollo."
+  },
+  {
+    "id": 12,
+    "nombre": "Butterfree",
+    "texto": "Butterfree es el pokemon numero 12. Es de tipo bug y flying. Estadisticas de Butterfree: 60 puntos de salud (HP), 45 de ataque, 50 de defensa, 90 de ataque especial, 80 de defensa especial y 70 de velocidad. Total de estadisticas: 395. Mide 1.1 metros y pesa 32.0 kilos. Descripcion de la Pokedex: Adora el néctar de las flores. Puede localizar hasta las más pequeñas cantidades de polen."
+  },
+  {
+    "id": 13,
+    "nombre": "Weedle",
+    "texto": "Weedle es el pokemon numero 13. Es de tipo bug y poison. Estadisticas de Weedle: 40 puntos de salud (HP), 35 de ataque, 30 de defensa, 20 de ataque especial, 20 de defensa especial y 50 de velocidad. Total de estadisticas: 195. Mide 0.3 metros y pesa 3.2 kilos. Descripcion de la Pokedex: Suele habitar bosques y praderas. Tiene un afilado y venenoso aguijón de unos 5 cm encima de la cabeza."
+  },
+  {
+    "id": 14,
+    "nombre": "Kakuna",
+    "texto": "Kakuna es el pokemon numero 14. Es de tipo bug y poison. Estadisticas de Kakuna: 45 puntos de salud (HP), 25 de ataque, 50 de defensa, 25 de ataque especial, 25 de defensa especial y 35 de velocidad. Total de estadisticas: 205. Mide 0.6 metros y pesa 10.0 kilos. Descripcion de la Pokedex: Casi incapaz de moverse, este Pokémon solo puede endurecer su caparazón para protegerse."
+  },
+  {
+    "id": 15,
+    "nombre": "Beedrill",
+    "texto": "Beedrill es el pokemon numero 15. Es de tipo bug y poison. Estadisticas de Beedrill: 65 puntos de salud (HP), 90 de ataque, 40 de defensa, 45 de ataque especial, 80 de defensa especial y 75 de velocidad. Total de estadisticas: 395. Mide 1.0 metros y pesa 29.5 kilos. Descripcion de la Pokedex: Tiene 3 aguijones venenosos en sus patas y cola. Suelen pinchar a sus enemigos repetidas veces."
+  },
+  {
+    "id": 16,
+    "nombre": "Pidgey",
+    "texto": "Pidgey es el pokemon numero 16. Es de tipo normal y flying. Estadisticas de Pidgey: 40 puntos de salud (HP), 45 de ataque, 40 de defensa, 35 de ataque especial, 35 de defensa especial y 56 de velocidad. Total de estadisticas: 251. Mide 0.3 metros y pesa 1.8 kilos. Descripcion de la Pokedex: Muy común en bosques y selvas. Aletea al nivel del suelo para levantar la gravilla."
+  },
+  {
+    "id": 17,
+    "nombre": "Pidgeotto",
+    "texto": "Pidgeotto es el pokemon numero 17. Es de tipo normal y flying. Estadisticas de Pidgeotto: 63 puntos de salud (HP), 60 de ataque, 55 de defensa, 50 de ataque especial, 50 de defensa especial y 71 de velocidad. Total de estadisticas: 349. Mide 1.1 metros y pesa 30.0 kilos. Descripcion de la Pokedex: Tiene unas garras desarrolladas. Puede atrapar un Exeggcute y transportarlo desde una distancia de casi 100 km."
+  },
+  {
+    "id": 18,
+    "nombre": "Pidgeot",
+    "texto": "Pidgeot es el pokemon numero 18. Es de tipo normal y flying. Estadisticas de Pidgeot: 83 puntos de salud (HP), 80 de ataque, 75 de defensa, 70 de ataque especial, 70 de defensa especial y 101 de velocidad. Total de estadisticas: 479. Mide 1.5 metros y pesa 39.5 kilos. Descripcion de la Pokedex: Cuando caza, vuela muy deprisa a ras del agua y sorprende a inocentes presas como Magikarp."
+  },
+  {
+    "id": 19,
+    "nombre": "Rattata",
+    "texto": "Rattata es el pokemon numero 19. Es de tipo normal. Estadisticas de Rattata: 30 puntos de salud (HP), 56 de ataque, 35 de defensa, 25 de ataque especial, 35 de defensa especial y 72 de velocidad. Total de estadisticas: 253. Mide 0.3 metros y pesa 3.5 kilos. Descripcion de la Pokedex: Vive allí donde haya comida disponible. Busca todo el día, sin descanso, algo comestible."
+  },
+  {
+    "id": 20,
+    "nombre": "Raticate",
+    "texto": "Raticate es el pokemon numero 20. Es de tipo normal. Estadisticas de Raticate: 55 puntos de salud (HP), 81 de ataque, 60 de defensa, 50 de ataque especial, 70 de defensa especial y 97 de velocidad. Total de estadisticas: 413. Mide 0.7 metros y pesa 18.5 kilos. Descripcion de la Pokedex: Lima sus colmillos royendo objetos duros. Con ellos puede destruir incluso paredes de hormigón."
+  },
+  {
+    "id": 21,
+    "nombre": "Spearow",
+    "texto": "Spearow es el pokemon numero 21. Es de tipo normal y flying. Estadisticas de Spearow: 40 puntos de salud (HP), 60 de ataque, 30 de defensa, 31 de ataque especial, 31 de defensa especial y 70 de velocidad. Total de estadisticas: 262. Mide 0.3 metros y pesa 2.0 kilos. Descripcion de la Pokedex: Muy protector de su territorio, mueve sus cortas alas sin descanso para lanzarse a toda velocidad."
+  },
+  {
+    "id": 22,
+    "nombre": "Fearow",
+    "texto": "Fearow es el pokemon numero 22. Es de tipo normal y flying. Estadisticas de Fearow: 65 puntos de salud (HP), 90 de ataque, 65 de defensa, 61 de ataque especial, 61 de defensa especial y 100 de velocidad. Total de estadisticas: 442. Mide 1.2 metros y pesa 38.0 kilos. Descripcion de la Pokedex: Con sus enormes y magníficas alas, puede seguir volando sin tener que aterrizar para descansar."
+  },
+  {
+    "id": 23,
+    "nombre": "Ekans",
+    "texto": "Ekans es el pokemon numero 23. Es de tipo poison. Estadisticas de Ekans: 35 puntos de salud (HP), 60 de ataque, 44 de defensa, 40 de ataque especial, 54 de defensa especial y 55 de velocidad. Total de estadisticas: 288. Mide 2.0 metros y pesa 6.9 kilos. Descripcion de la Pokedex: Cuanto más viejo, más crece este Pokémon. Por la noche, descansa en las ramas de los árboles."
+  },
+  {
+    "id": 24,
+    "nombre": "Arbok",
+    "texto": "Arbok es el pokemon numero 24. Es de tipo poison. Estadisticas de Arbok: 60 puntos de salud (HP), 95 de ataque, 69 de defensa, 65 de ataque especial, 79 de defensa especial y 80 de velocidad. Total de estadisticas: 448. Mide 3.5 metros y pesa 65.0 kilos. Descripcion de la Pokedex: El dibujo que tiene en la panza aterroriza. Los rivales más débiles salen huyendo al verlo."
+  },
+  {
+    "id": 25,
+    "nombre": "Pikachu",
+    "texto": "Pikachu es el pokemon numero 25. Es de tipo electric. Estadisticas de Pikachu: 35 puntos de salud (HP), 55 de ataque, 40 de defensa, 50 de ataque especial, 50 de defensa especial y 90 de velocidad. Total de estadisticas: 320. Mide 0.4 metros y pesa 6.0 kilos. Descripcion de la Pokedex: Levanta su cola para vigilar los alrededores. A veces, puede ser alcanzado por un rayo en esa pose."
+  },
+  {
+    "id": 26,
+    "nombre": "Raichu",
+    "texto": "Raichu es el pokemon numero 26. Es de tipo electric. Estadisticas de Raichu: 60 puntos de salud (HP), 90 de ataque, 55 de defensa, 90 de ataque especial, 80 de defensa especial y 110 de velocidad. Total de estadisticas: 485. Mide 0.8 metros y pesa 30.0 kilos. Descripcion de la Pokedex: Cuando se carga de electricidad, sus músculos se tensan y se vuelve más agresivo de lo normal."
+  },
+  {
+    "id": 27,
+    "nombre": "Sandshrew",
+    "texto": "Sandshrew es el pokemon numero 27. Es de tipo ground. Estadisticas de Sandshrew: 50 puntos de salud (HP), 75 de ataque, 85 de defensa, 20 de ataque especial, 30 de defensa especial y 40 de velocidad. Total de estadisticas: 300. Mide 0.6 metros y pesa 12.0 kilos. Descripcion de la Pokedex: Este Pokémon permanece bajo tierra. Si se siente amenazado, se enrosca para defenderse."
+  },
+  {
+    "id": 28,
+    "nombre": "Sandslash",
+    "texto": "Sandslash es el pokemon numero 28. Es de tipo ground. Estadisticas de Sandslash: 75 puntos de salud (HP), 100 de ataque, 110 de defensa, 45 de ataque especial, 55 de defensa especial y 65 de velocidad. Total de estadisticas: 450. Mide 1.0 metros y pesa 29.5 kilos. Descripcion de la Pokedex: Si cava a gran velocidad, puede que se le caigan las garras y púas. Vuelven a crecerle en un día."
+  },
+  {
+    "id": 29,
+    "nombre": "Nidoran-f",
+    "texto": "Nidoran-f es el pokemon numero 29. Es de tipo poison. Estadisticas de Nidoran-f: 55 puntos de salud (HP), 47 de ataque, 52 de defensa, 40 de ataque especial, 40 de defensa especial y 41 de velocidad. Total de estadisticas: 275. Mide 0.4 metros y pesa 7.0 kilos. Descripcion de la Pokedex: Aunque pequeñas, sus venenosas púas son muy peligrosas. Tienen un cuerno más pequeño que los machos."
+  },
+  {
+    "id": 30,
+    "nombre": "Nidorina",
+    "texto": "Nidorina es el pokemon numero 30. Es de tipo poison. Estadisticas de Nidorina: 70 puntos de salud (HP), 62 de ataque, 67 de defensa, 55 de ataque especial, 55 de defensa especial y 56 de velocidad. Total de estadisticas: 365. Mide 0.8 metros y pesa 20.0 kilos. Descripcion de la Pokedex: Tiene un carácter afable. Emite ondas ultrasónicas para confundir al enemigo."
+  },
+  {
+    "id": 31,
+    "nombre": "Nidoqueen",
+    "texto": "Nidoqueen es el pokemon numero 31. Es de tipo poison y ground. Estadisticas de Nidoqueen: 90 puntos de salud (HP), 92 de ataque, 87 de defensa, 75 de ataque especial, 85 de defensa especial y 76 de velocidad. Total de estadisticas: 505. Mide 1.3 metros y pesa 60.0 kilos. Descripcion de la Pokedex: Usa su cuerpo duro y escamoso para sellar la entrada a su madriguera y protegerse de los depredadores."
+  },
+  {
+    "id": 32,
+    "nombre": "Nidoran-m",
+    "texto": "Nidoran-m es el pokemon numero 32. Es de tipo poison. Estadisticas de Nidoran-m: 46 puntos de salud (HP), 57 de ataque, 40 de defensa, 40 de ataque especial, 40 de defensa especial y 50 de velocidad. Total de estadisticas: 273. Mide 0.5 metros y pesa 9.0 kilos. Descripcion de la Pokedex: Saca las orejas por encima de la hierba para explorar el territorio. Le protege su cuerno venenoso."
+  },
+  {
+    "id": 33,
+    "nombre": "Nidorino",
+    "texto": "Nidorino es el pokemon numero 33. Es de tipo poison. Estadisticas de Nidorino: 61 puntos de salud (HP), 72 de ataque, 57 de defensa, 55 de ataque especial, 55 de defensa especial y 65 de velocidad. Total de estadisticas: 365. Mide 0.9 metros y pesa 19.5 kilos. Descripcion de la Pokedex: Levanta sus grandes orejas para vigilar. Si detecta algo, atacará de inmediato."
+  },
+  {
+    "id": 34,
+    "nombre": "Nidoking",
+    "texto": "Nidoking es el pokemon numero 34. Es de tipo poison y ground. Estadisticas de Nidoking: 81 puntos de salud (HP), 102 de ataque, 77 de defensa, 85 de ataque especial, 75 de defensa especial y 85 de velocidad. Total de estadisticas: 505. Mide 1.4 metros y pesa 62.0 kilos. Descripcion de la Pokedex: Es fácil reconocerlo por tener una dura piel y un gran cuerno lleno de peligrosísimo veneno."
+  },
+  {
+    "id": 35,
+    "nombre": "Clefairy",
+    "texto": "Clefairy es el pokemon numero 35. Es de tipo fairy. Estadisticas de Clefairy: 70 puntos de salud (HP), 45 de ataque, 48 de defensa, 60 de ataque especial, 65 de defensa especial y 35 de velocidad. Total de estadisticas: 323. Mide 0.6 metros y pesa 7.5 kilos. Descripcion de la Pokedex: Se dice que la felicidad llegará a quien vea a un grupo de Clefairy bailando a la luz de la luna llena."
+  },
+  {
+    "id": 36,
+    "nombre": "Clefable",
+    "texto": "Clefable es el pokemon numero 36. Es de tipo fairy. Estadisticas de Clefable: 95 puntos de salud (HP), 70 de ataque, 73 de defensa, 95 de ataque especial, 90 de defensa especial y 60 de velocidad. Total de estadisticas: 483. Mide 1.3 metros y pesa 40.0 kilos. Descripcion de la Pokedex: Su oído es tan agudo que puede oír una aguja caer a 1 km. Vive en montañas solitarias."
+  },
+  {
+    "id": 37,
+    "nombre": "Vulpix",
+    "texto": "Vulpix es el pokemon numero 37. Es de tipo fire. Estadisticas de Vulpix: 38 puntos de salud (HP), 41 de ataque, 40 de defensa, 50 de ataque especial, 65 de defensa especial y 65 de velocidad. Total de estadisticas: 299. Mide 0.6 metros y pesa 9.9 kilos. Descripcion de la Pokedex: Cuando nace solo tiene una cola, pero a medida que crece, esta se va dividiendo desde la punta."
+  },
+  {
+    "id": 38,
+    "nombre": "Ninetales",
+    "texto": "Ninetales es el pokemon numero 38. Es de tipo fire. Estadisticas de Ninetales: 73 puntos de salud (HP), 76 de ataque, 75 de defensa, 81 de ataque especial, 100 de defensa especial y 100 de velocidad. Total de estadisticas: 505. Mide 1.1 metros y pesa 19.9 kilos. Descripcion de la Pokedex: Tiene nueve colas y un pelaje de color dorado. Dicen que este Pokémon llega a vivir 1000 años."
+  },
+  {
+    "id": 39,
+    "nombre": "Jigglypuff",
+    "texto": "Jigglypuff es el pokemon numero 39. Es de tipo normal y fairy. Estadisticas de Jigglypuff: 115 puntos de salud (HP), 45 de ataque, 20 de defensa, 45 de ataque especial, 25 de defensa especial y 20 de velocidad. Total de estadisticas: 270. Mide 0.5 metros y pesa 5.5 kilos. Descripcion de la Pokedex: Cautiva con la mirada a su enemigo y hace que se quede profundamente dormido mientras entona una dulce melodía."
+  },
+  {
+    "id": 40,
+    "nombre": "Wigglytuff",
+    "texto": "Wigglytuff es el pokemon numero 40. Es de tipo normal y fairy. Estadisticas de Wigglytuff: 140 puntos de salud (HP), 70 de ataque, 45 de defensa, 85 de ataque especial, 50 de defensa especial y 45 de velocidad. Total de estadisticas: 435. Mide 1.0 metros y pesa 12.0 kilos. Descripcion de la Pokedex: Su piel es tan suave que si dos de ellos se acurrucan juntos, no querrán separarse nunca."
+  },
+  {
+    "id": 41,
+    "nombre": "Zubat",
+    "texto": "Zubat es el pokemon numero 41. Es de tipo poison y flying. Estadisticas de Zubat: 40 puntos de salud (HP), 45 de ataque, 35 de defensa, 30 de ataque especial, 40 de defensa especial y 55 de velocidad. Total de estadisticas: 245. Mide 0.8 metros y pesa 7.5 kilos. Descripcion de la Pokedex: Aunque carezca de ojos, puede detectar obstáculos con las ondas ultrasónicas que emite su boca."
+  },
+  {
+    "id": 42,
+    "nombre": "Golbat",
+    "texto": "Golbat es el pokemon numero 42. Es de tipo poison y flying. Estadisticas de Golbat: 75 puntos de salud (HP), 80 de ataque, 70 de defensa, 65 de ataque especial, 75 de defensa especial y 90 de velocidad. Total de estadisticas: 455. Mide 1.6 metros y pesa 55.0 kilos. Descripcion de la Pokedex: Cuando ataque, seguirá chupando energía de su víctima, aunque pese tanto que ya no pueda volar."
+  },
+  {
+    "id": 43,
+    "nombre": "Oddish",
+    "texto": "Oddish es el pokemon numero 43. Es de tipo grass y poison. Estadisticas de Oddish: 45 puntos de salud (HP), 50 de ataque, 55 de defensa, 75 de ataque especial, 65 de defensa especial y 30 de velocidad. Total de estadisticas: 320. Mide 0.5 metros y pesa 5.4 kilos. Descripcion de la Pokedex: Durante el día, se agazapa en el frío subsuelo huyendo del sol. La luz de la luna le hace crecer mucho."
+  },
+  {
+    "id": 44,
+    "nombre": "Gloom",
+    "texto": "Gloom es el pokemon numero 44. Es de tipo grass y poison. Estadisticas de Gloom: 60 puntos de salud (HP), 65 de ataque, 70 de defensa, 85 de ataque especial, 75 de defensa especial y 40 de velocidad. Total de estadisticas: 395. Mide 0.8 metros y pesa 8.6 kilos. Descripcion de la Pokedex: ¡Huele bastante mal! De todas formas, una de cada mil personas aprecian su fétido olor."
+  },
+  {
+    "id": 45,
+    "nombre": "Vileplume",
+    "texto": "Vileplume es el pokemon numero 45. Es de tipo grass y poison. Estadisticas de Vileplume: 75 puntos de salud (HP), 80 de ataque, 85 de defensa, 110 de ataque especial, 90 de defensa especial y 50 de velocidad. Total de estadisticas: 490. Mide 1.2 metros y pesa 18.6 kilos. Descripcion de la Pokedex: Cuanto mayores son sus pétalos, más tóxico es su polen. Le pesa la cabeza y le cuesta mantenerla erguida."
+  },
+  {
+    "id": 46,
+    "nombre": "Paras",
+    "texto": "Paras es el pokemon numero 46. Es de tipo bug y grass. Estadisticas de Paras: 35 puntos de salud (HP), 70 de ataque, 55 de defensa, 45 de ataque especial, 55 de defensa especial y 25 de velocidad. Total de estadisticas: 285. Mide 0.3 metros y pesa 5.4 kilos. Descripcion de la Pokedex: Lleva en el lomo dos setas parásitas llamadas tochukaso, que crecen con él."
+  },
+  {
+    "id": 47,
+    "nombre": "Parasect",
+    "texto": "Parasect es el pokemon numero 47. Es de tipo bug y grass. Estadisticas de Parasect: 60 puntos de salud (HP), 95 de ataque, 80 de defensa, 60 de ataque especial, 80 de defensa especial y 30 de velocidad. Total de estadisticas: 405. Mide 1.0 metros y pesa 29.5 kilos. Descripcion de la Pokedex: Parasect está dominado por una seta parásita mayor que él. Dispersa esporas venenosas."
+  },
+  {
+    "id": 48,
+    "nombre": "Venonat",
+    "texto": "Venonat es el pokemon numero 48. Es de tipo bug y poison. Estadisticas de Venonat: 60 puntos de salud (HP), 55 de ataque, 50 de defensa, 40 de ataque especial, 55 de defensa especial y 45 de velocidad. Total de estadisticas: 305. Mide 1.0 metros y pesa 30.0 kilos. Descripcion de la Pokedex: Sus grandes ojos son en realidad grupos de ojos diminutos. Por la noche se siente atraído por la luz."
+  },
+  {
+    "id": 49,
+    "nombre": "Venomoth",
+    "texto": "Venomoth es el pokemon numero 49. Es de tipo bug y poison. Estadisticas de Venomoth: 70 puntos de salud (HP), 65 de ataque, 60 de defensa, 90 de ataque especial, 75 de defensa especial y 90 de velocidad. Total de estadisticas: 450. Mide 1.5 metros y pesa 12.5 kilos. Descripcion de la Pokedex: Tiene las alas cubiertas de un polvillo de escamas que esparce cada vez que las bate."
+  },
+  {
+    "id": 50,
+    "nombre": "Diglett",
+    "texto": "Diglett es el pokemon numero 50. Es de tipo ground. Estadisticas de Diglett: 10 puntos de salud (HP), 55 de ataque, 25 de defensa, 35 de ataque especial, 45 de defensa especial y 95 de velocidad. Total de estadisticas: 265. Mide 0.2 metros y pesa 0.8 kilos. Descripcion de la Pokedex: Vive un metro por debajo del suelo, donde se alimenta de raíces. También aparece en la superficie."
+  },
+  {
+    "id": 51,
+    "nombre": "Dugtrio",
+    "texto": "Dugtrio es el pokemon numero 51. Es de tipo ground. Estadisticas de Dugtrio: 35 puntos de salud (HP), 100 de ataque, 50 de defensa, 50 de ataque especial, 70 de defensa especial y 120 de velocidad. Total de estadisticas: 425. Mide 0.7 metros y pesa 33.3 kilos. Descripcion de la Pokedex: En combate, cava la tierra, se esconde y sale de repente para golpear a su rival. Nunca se sabe por dónde puede aparecer."
+  },
+  {
+    "id": 52,
+    "nombre": "Meowth",
+    "texto": "Meowth es el pokemon numero 52. Es de tipo normal. Estadisticas de Meowth: 40 puntos de salud (HP), 45 de ataque, 35 de defensa, 40 de ataque especial, 40 de defensa especial y 90 de velocidad. Total de estadisticas: 290. Mide 0.4 metros y pesa 4.2 kilos. Descripcion de la Pokedex: Es de naturaleza nocturna. Le atraen los objetos brillantes."
+  },
+  {
+    "id": 53,
+    "nombre": "Persian",
+    "texto": "Persian es el pokemon numero 53. Es de tipo normal. Estadisticas de Persian: 65 puntos de salud (HP), 70 de ataque, 60 de defensa, 65 de ataque especial, 65 de defensa especial y 115 de velocidad. Total de estadisticas: 440. Mide 1.0 metros y pesa 32.0 kilos. Descripcion de la Pokedex: Aunque es muy admirado por el pelo, es difícil de entrenar como mascota, porque es un poco travieso."
+  },
+  {
+    "id": 54,
+    "nombre": "Psyduck",
+    "texto": "Psyduck es el pokemon numero 54. Es de tipo water. Estadisticas de Psyduck: 50 puntos de salud (HP), 52 de ataque, 48 de defensa, 65 de ataque especial, 50 de defensa especial y 55 de velocidad. Total de estadisticas: 320. Mide 0.8 metros y pesa 19.6 kilos. Descripcion de la Pokedex: Padece continuamente dolores de cabeza. Cuando son muy fuertes, empieza a usar misteriosos poderes."
+  },
+  {
+    "id": 55,
+    "nombre": "Golduck",
+    "texto": "Golduck es el pokemon numero 55. Es de tipo water. Estadisticas de Golduck: 80 puntos de salud (HP), 82 de ataque, 78 de defensa, 95 de ataque especial, 80 de defensa especial y 85 de velocidad. Total de estadisticas: 500. Mide 1.7 metros y pesa 76.6 kilos. Descripcion de la Pokedex: Aparece en ríos al anochecer. Puede usar poderes telequinéticos si su frente brilla misteriosamente."
+  },
+  {
+    "id": 56,
+    "nombre": "Mankey",
+    "texto": "Mankey es el pokemon numero 56. Es de tipo fighting. Estadisticas de Mankey: 40 puntos de salud (HP), 80 de ataque, 35 de defensa, 35 de ataque especial, 45 de defensa especial y 70 de velocidad. Total de estadisticas: 305. Mide 0.5 metros y pesa 28.0 kilos. Descripcion de la Pokedex: Es peligroso acercarse si se enfada sin razón aparente, ya que no distingue entre amigos y enemigos."
+  },
+  {
+    "id": 57,
+    "nombre": "Primeape",
+    "texto": "Primeape es el pokemon numero 57. Es de tipo fighting. Estadisticas de Primeape: 65 puntos de salud (HP), 105 de ataque, 60 de defensa, 60 de ataque especial, 70 de defensa especial y 95 de velocidad. Total de estadisticas: 455. Mide 1.0 metros y pesa 32.0 kilos. Descripcion de la Pokedex: Solo se calma cuando nadie está cerca. Llegar a ver ese momento es realmente difícil."
+  },
+  {
+    "id": 58,
+    "nombre": "Growlithe",
+    "texto": "Growlithe es el pokemon numero 58. Es de tipo fire. Estadisticas de Growlithe: 55 puntos de salud (HP), 70 de ataque, 45 de defensa, 70 de ataque especial, 50 de defensa especial y 60 de velocidad. Total de estadisticas: 350. Mide 0.7 metros y pesa 19.0 kilos. Descripcion de la Pokedex: Es muy agradable y leal. Para ahuyentar al enemigo, se pone a ladrar y a dar bocados."
+  },
+  {
+    "id": 59,
+    "nombre": "Arcanine",
+    "texto": "Arcanine es el pokemon numero 59. Es de tipo fire. Estadisticas de Arcanine: 90 puntos de salud (HP), 110 de ataque, 80 de defensa, 100 de ataque especial, 80 de defensa especial y 95 de velocidad. Total de estadisticas: 555. Mide 1.9 metros y pesa 155.0 kilos. Descripcion de la Pokedex: Un Pokémon muy admirado desde la antigüedad por su belleza. Corre ágilmente como si tuviera alas."
+  },
+  {
+    "id": 60,
+    "nombre": "Poliwag",
+    "texto": "Poliwag es el pokemon numero 60. Es de tipo water. Estadisticas de Poliwag: 40 puntos de salud (HP), 50 de ataque, 40 de defensa, 40 de ataque especial, 40 de defensa especial y 90 de velocidad. Total de estadisticas: 300. Mide 0.6 metros y pesa 12.4 kilos. Descripcion de la Pokedex: Tiene una piel extraordinaria, fina y húmeda, que deja entrever las vísceras que tiene dispuestas en espiral."
+  },
+  {
+    "id": 61,
+    "nombre": "Poliwhirl",
+    "texto": "Poliwhirl es el pokemon numero 61. Es de tipo water. Estadisticas de Poliwhirl: 65 puntos de salud (HP), 65 de ataque, 65 de defensa, 50 de ataque especial, 50 de defensa especial y 90 de velocidad. Total de estadisticas: 385. Mide 1.0 metros y pesa 20.0 kilos. Descripcion de la Pokedex: Capaz de vivir dentro o fuera del agua. Fuera del agua suda para mantener baboso su cuerpo."
+  },
+  {
+    "id": 62,
+    "nombre": "Poliwrath",
+    "texto": "Poliwrath es el pokemon numero 62. Es de tipo water y fighting. Estadisticas de Poliwrath: 90 puntos de salud (HP), 95 de ataque, 95 de defensa, 70 de ataque especial, 90 de defensa especial y 70 de velocidad. Total de estadisticas: 510. Mide 1.3 metros y pesa 54.0 kilos. Descripcion de la Pokedex: Tiene músculos muy desarrollados. Es capaz de nadar en el océano sin descanso."
+  },
+  {
+    "id": 63,
+    "nombre": "Abra",
+    "texto": "Abra es el pokemon numero 63. Es de tipo psychic. Estadisticas de Abra: 25 puntos de salud (HP), 20 de ataque, 15 de defensa, 105 de ataque especial, 55 de defensa especial y 90 de velocidad. Total de estadisticas: 310. Mide 0.9 metros y pesa 19.5 kilos. Descripcion de la Pokedex: Duerme 18 horas al día y mientras lo hace es capaz de usar una serie de poderes extrasensoriales."
+  },
+  {
+    "id": 64,
+    "nombre": "Kadabra",
+    "texto": "Kadabra es el pokemon numero 64. Es de tipo psychic. Estadisticas de Kadabra: 40 puntos de salud (HP), 35 de ataque, 30 de defensa, 120 de ataque especial, 70 de defensa especial y 105 de velocidad. Total de estadisticas: 400. Mide 1.3 metros y pesa 56.5 kilos. Descripcion de la Pokedex: Cuando utiliza su poder psíquico, emite poderosas ondas alfa que pueden destruir dispositivos."
+  },
+  {
+    "id": 65,
+    "nombre": "Alakazam",
+    "texto": "Alakazam es el pokemon numero 65. Es de tipo psychic. Estadisticas de Alakazam: 55 puntos de salud (HP), 50 de ataque, 45 de defensa, 135 de ataque especial, 95 de defensa especial y 120 de velocidad. Total de estadisticas: 500. Mide 1.5 metros y pesa 48.0 kilos. Descripcion de la Pokedex: Sus neuronas se multiplican continuamente durante su vida. Por eso, siempre lo recuerda todo."
+  },
+  {
+    "id": 66,
+    "nombre": "Machop",
+    "texto": "Machop es el pokemon numero 66. Es de tipo fighting. Estadisticas de Machop: 70 puntos de salud (HP), 80 de ataque, 50 de defensa, 35 de ataque especial, 35 de defensa especial y 35 de velocidad. Total de estadisticas: 305. Mide 0.8 metros y pesa 19.5 kilos. Descripcion de la Pokedex: Levanta un Graveler para mantener sus músculos en forma. Domina todas las artes marciales."
+  },
+  {
+    "id": 67,
+    "nombre": "Machoke",
+    "texto": "Machoke es el pokemon numero 67. Es de tipo fighting. Estadisticas de Machoke: 80 puntos de salud (HP), 100 de ataque, 70 de defensa, 50 de ataque especial, 60 de defensa especial y 45 de velocidad. Total de estadisticas: 405. Mide 1.5 metros y pesa 70.5 kilos. Descripcion de la Pokedex: Su musculoso cuerpo es tan fuerte que usa un cinto antifuerza para controlar sus movimientos."
+  },
+  {
+    "id": 68,
+    "nombre": "Machamp",
+    "texto": "Machamp es el pokemon numero 68. Es de tipo fighting. Estadisticas de Machamp: 90 puntos de salud (HP), 130 de ataque, 80 de defensa, 65 de ataque especial, 85 de defensa especial y 55 de velocidad. Total de estadisticas: 505. Mide 1.6 metros y pesa 130.0 kilos. Descripcion de la Pokedex: Tiene cuatro brazos tan bien desarrollados que puede dar una serie de 1000 puñetazos en cuestión de dos segundos."
+  },
+  {
+    "id": 69,
+    "nombre": "Bellsprout",
+    "texto": "Bellsprout es el pokemon numero 69. Es de tipo grass y poison. Estadisticas de Bellsprout: 50 puntos de salud (HP), 75 de ataque, 35 de defensa, 70 de ataque especial, 30 de defensa especial y 40 de velocidad. Total de estadisticas: 300. Mide 0.7 metros y pesa 4.0 kilos. Descripcion de la Pokedex: Aunque su cuerpo es extremadamente delgado, es muy rápido a la hora de capturar sus presas."
+  },
+  {
+    "id": 70,
+    "nombre": "Weepinbell",
+    "texto": "Weepinbell es el pokemon numero 70. Es de tipo grass y poison. Estadisticas de Weepinbell: 65 puntos de salud (HP), 90 de ataque, 50 de defensa, 85 de ataque especial, 45 de defensa especial y 55 de velocidad. Total de estadisticas: 390. Mide 1.0 metros y pesa 6.4 kilos. Descripcion de la Pokedex: Las hojas que tiene actúan como cuchillas en combate. Otra de sus armas es el corrosivo fluido que expulsa."
+  },
+  {
+    "id": 71,
+    "nombre": "Victreebel",
+    "texto": "Victreebel es el pokemon numero 71. Es de tipo grass y poison. Estadisticas de Victreebel: 80 puntos de salud (HP), 105 de ataque, 65 de defensa, 100 de ataque especial, 70 de defensa especial y 70 de velocidad. Total de estadisticas: 490. Mide 1.7 metros y pesa 15.5 kilos. Descripcion de la Pokedex: Dicen que vive en grandes colonias en el interior de las junglas, aunque nadie ha podido verificarlo."
+  },
+  {
+    "id": 72,
+    "nombre": "Tentacool",
+    "texto": "Tentacool es el pokemon numero 72. Es de tipo water y poison. Estadisticas de Tentacool: 40 puntos de salud (HP), 40 de ataque, 35 de defensa, 50 de ataque especial, 100 de defensa especial y 70 de velocidad. Total de estadisticas: 335. Mide 0.9 metros y pesa 45.5 kilos. Descripcion de la Pokedex: Su cuerpo se compone casi en exclusiva de agua. Lanza extraños rayos con sus ojos cristalinos."
+  },
+  {
+    "id": 73,
+    "nombre": "Tentacruel",
+    "texto": "Tentacruel es el pokemon numero 73. Es de tipo water y poison. Estadisticas de Tentacruel: 80 puntos de salud (HP), 70 de ataque, 65 de defensa, 80 de ataque especial, 120 de defensa especial y 100 de velocidad. Total de estadisticas: 515. Mide 1.6 metros y pesa 55.0 kilos. Descripcion de la Pokedex: Cuando caza, extiende los cortos tentáculos que tiene para atrapar e inmovilizar a su presa."
+  },
+  {
+    "id": 74,
+    "nombre": "Geodude",
+    "texto": "Geodude es el pokemon numero 74. Es de tipo rock y ground. Estadisticas de Geodude: 40 puntos de salud (HP), 80 de ataque, 100 de defensa, 30 de ataque especial, 30 de defensa especial y 20 de velocidad. Total de estadisticas: 300. Mide 0.4 metros y pesa 20.0 kilos. Descripcion de la Pokedex: Aparecen en llanos y montañas. Como parecen rocas, la gente se tropieza con ellos o los pisa."
+  },
+  {
+    "id": 75,
+    "nombre": "Graveler",
+    "texto": "Graveler es el pokemon numero 75. Es de tipo rock y ground. Estadisticas de Graveler: 55 puntos de salud (HP), 95 de ataque, 115 de defensa, 45 de ataque especial, 45 de defensa especial y 35 de velocidad. Total de estadisticas: 390. Mide 1.0 metros y pesa 105.0 kilos. Descripcion de la Pokedex: De naturaleza descuidada y libre, no le importa dañarse cuando baja rodando montañas."
+  },
+  {
+    "id": 76,
+    "nombre": "Golem",
+    "texto": "Golem es el pokemon numero 76. Es de tipo rock y ground. Estadisticas de Golem: 80 puntos de salud (HP), 120 de ataque, 130 de defensa, 55 de ataque especial, 65 de defensa especial y 45 de velocidad. Total de estadisticas: 495. Mide 1.4 metros y pesa 300.0 kilos. Descripcion de la Pokedex: Se lanza montaña abajo y deja un surco desde la cima hasta el pie. Es mejor mantenerse alejado."
+  },
+  {
+    "id": 77,
+    "nombre": "Ponyta",
+    "texto": "Ponyta es el pokemon numero 77. Es de tipo fire. Estadisticas de Ponyta: 50 puntos de salud (HP), 85 de ataque, 55 de defensa, 65 de ataque especial, 65 de defensa especial y 90 de velocidad. Total de estadisticas: 410. Mide 1.0 metros y pesa 30.0 kilos. Descripcion de la Pokedex: Cuando nace, apenas puede tenerse en pie. Pero va fortaleciendo las patas en cuanto empieza a galopar."
+  },
+  {
+    "id": 78,
+    "nombre": "Rapidash",
+    "texto": "Rapidash es el pokemon numero 78. Es de tipo fire. Estadisticas de Rapidash: 65 puntos de salud (HP), 100 de ataque, 70 de defensa, 80 de ataque especial, 80 de defensa especial y 105 de velocidad. Total de estadisticas: 500. Mide 1.7 metros y pesa 95.0 kilos. Descripcion de la Pokedex: Muy competitivo, este Pokémon perseguirá a todo lo que se mueva rápido e intentará salir airoso."
+  },
+  {
+    "id": 79,
+    "nombre": "Slowpoke",
+    "texto": "Slowpoke es el pokemon numero 79. Es de tipo water y psychic. Estadisticas de Slowpoke: 90 puntos de salud (HP), 65 de ataque, 65 de defensa, 40 de ataque especial, 40 de defensa especial y 15 de velocidad. Total de estadisticas: 315. Mide 1.2 metros y pesa 36.0 kilos. Descripcion de la Pokedex: Está siempre en su mundo, pero nadie sabe en qué piensa. Suele pescar con la cola."
+  },
+  {
+    "id": 80,
+    "nombre": "Slowbro",
+    "texto": "Slowbro es el pokemon numero 80. Es de tipo water y psychic. Estadisticas de Slowbro: 95 puntos de salud (HP), 75 de ataque, 110 de defensa, 100 de ataque especial, 80 de defensa especial y 30 de velocidad. Total de estadisticas: 490. Mide 1.6 metros y pesa 78.5 kilos. Descripcion de la Pokedex: Tiene una cola tan apetecible, que el Shellder que va enganchado a ella no se soltará por nada del mundo."
+  },
+  {
+    "id": 81,
+    "nombre": "Magnemite",
+    "texto": "Magnemite es el pokemon numero 81. Es de tipo electric y steel. Estadisticas de Magnemite: 25 puntos de salud (HP), 35 de ataque, 70 de defensa, 95 de ataque especial, 55 de defensa especial y 45 de velocidad. Total de estadisticas: 325. Mide 0.3 metros y pesa 6.0 kilos. Descripcion de la Pokedex: Las unidades a los lados de su cuerpo generan energía antigravitatoria para mantenerlo en el aire."
+  },
+  {
+    "id": 82,
+    "nombre": "Magneton",
+    "texto": "Magneton es el pokemon numero 82. Es de tipo electric y steel. Estadisticas de Magneton: 50 puntos de salud (HP), 60 de ataque, 95 de defensa, 120 de ataque especial, 70 de defensa especial y 70 de velocidad. Total de estadisticas: 465. Mide 1.0 metros y pesa 60.0 kilos. Descripcion de la Pokedex: Lo constituye un grupo de Magnemite. Descarga potentes ondas magnéticas de alto voltaje."
+  },
+  {
+    "id": 83,
+    "nombre": "Farfetchd",
+    "texto": "Farfetchd es el pokemon numero 83. Es de tipo normal y flying. Estadisticas de Farfetchd: 52 puntos de salud (HP), 90 de ataque, 55 de defensa, 58 de ataque especial, 62 de defensa especial y 60 de velocidad. Total de estadisticas: 377. Mide 0.8 metros y pesa 15.0 kilos. Descripcion de la Pokedex: El puerro que lleva es su mejor arma. Suele usarlo como espada para cortar cosas."
+  },
+  {
+    "id": 84,
+    "nombre": "Doduo",
+    "texto": "Doduo es el pokemon numero 84. Es de tipo normal y flying. Estadisticas de Doduo: 35 puntos de salud (HP), 85 de ataque, 45 de defensa, 35 de ataque especial, 35 de defensa especial y 75 de velocidad. Total de estadisticas: 310. Mide 1.4 metros y pesa 39.2 kilos. Descripcion de la Pokedex: Este Pokémon de dos cabezas es el resultado de una mutación. Cuando corre, puede alcanzar casi 100 km por hora."
+  },
+  {
+    "id": 85,
+    "nombre": "Dodrio",
+    "texto": "Dodrio es el pokemon numero 85. Es de tipo normal y flying. Estadisticas de Dodrio: 60 puntos de salud (HP), 110 de ataque, 70 de defensa, 60 de ataque especial, 60 de defensa especial y 110 de velocidad. Total de estadisticas: 470. Mide 1.8 metros y pesa 85.2 kilos. Descripcion de la Pokedex: Más vale no perder de vista ninguna de las tres cabezas. De lo contrario, el número de picotazos será enorme."
+  },
+  {
+    "id": 86,
+    "nombre": "Seel",
+    "texto": "Seel es el pokemon numero 86. Es de tipo water. Estadisticas de Seel: 65 puntos de salud (HP), 45 de ataque, 55 de defensa, 45 de ataque especial, 70 de defensa especial y 45 de velocidad. Total de estadisticas: 325. Mide 1.1 metros y pesa 90.0 kilos. Descripcion de la Pokedex: Este Pokémon vive en icebergs. Nada en el mar y usa el cuerno de su cabeza para romper el hielo."
+  },
+  {
+    "id": 87,
+    "nombre": "Dewgong",
+    "texto": "Dewgong es el pokemon numero 87. Es de tipo water y ice. Estadisticas de Dewgong: 90 puntos de salud (HP), 70 de ataque, 80 de defensa, 70 de ataque especial, 95 de defensa especial y 70 de velocidad. Total de estadisticas: 475. Mide 1.7 metros y pesa 120.0 kilos. Descripcion de la Pokedex: Está recubierto de un luminoso pelaje blanco. Este Pokémon aumenta su actividad cuando bajan las temperaturas."
+  },
+  {
+    "id": 88,
+    "nombre": "Grimer",
+    "texto": "Grimer es el pokemon numero 88. Es de tipo poison. Estadisticas de Grimer: 80 puntos de salud (HP), 80 de ataque, 50 de defensa, 40 de ataque especial, 50 de defensa especial y 25 de velocidad. Total de estadisticas: 325. Mide 0.9 metros y pesa 30.0 kilos. Descripcion de la Pokedex: Nace de lodo alterado al filtrarse en el agua los rayos X reflejados por la Luna. Se alimenta de sustancias desagradables."
+  },
+  {
+    "id": 89,
+    "nombre": "Muk",
+    "texto": "Muk es el pokemon numero 89. Es de tipo poison. Estadisticas de Muk: 105 puntos de salud (HP), 105 de ataque, 75 de defensa, 65 de ataque especial, 100 de defensa especial y 50 de velocidad. Total de estadisticas: 500. Mide 1.2 metros y pesa 30.0 kilos. Descripcion de la Pokedex: Su cuerpo segrega un fluido tóxico que elimina la vida vegetal cuando la toca."
+  },
+  {
+    "id": 90,
+    "nombre": "Shellder",
+    "texto": "Shellder es el pokemon numero 90. Es de tipo water. Estadisticas de Shellder: 30 puntos de salud (HP), 65 de ataque, 100 de defensa, 45 de ataque especial, 25 de defensa especial y 40 de velocidad. Total de estadisticas: 305. Mide 0.3 metros y pesa 4.0 kilos. Descripcion de la Pokedex: La concha lo protege de cualquier tipo de ataque. Solo es vulnerable cuando se abre."
+  },
+  {
+    "id": 91,
+    "nombre": "Cloyster",
+    "texto": "Cloyster es el pokemon numero 91. Es de tipo water y ice. Estadisticas de Cloyster: 50 puntos de salud (HP), 95 de ataque, 180 de defensa, 85 de ataque especial, 45 de defensa especial y 70 de velocidad. Total de estadisticas: 525. Mide 1.5 metros y pesa 132.5 kilos. Descripcion de la Pokedex: A los Cloyster que viven en las fuertes corrientes marinas les crecen largas y afiladas púas en la concha."
+  },
+  {
+    "id": 92,
+    "nombre": "Gastly",
+    "texto": "Gastly es el pokemon numero 92. Es de tipo ghost y poison. Estadisticas de Gastly: 30 puntos de salud (HP), 35 de ataque, 30 de defensa, 100 de ataque especial, 35 de defensa especial y 80 de velocidad. Total de estadisticas: 310. Mide 1.3 metros y pesa 0.1 kilos. Descripcion de la Pokedex: Su etéreo cuerpo está hecho de gas. Puede envolver a un oponente de cualquier tamaño hasta ahogarlo."
+  },
+  {
+    "id": 93,
+    "nombre": "Haunter",
+    "texto": "Haunter es el pokemon numero 93. Es de tipo ghost y poison. Estadisticas de Haunter: 45 puntos de salud (HP), 50 de ataque, 45 de defensa, 115 de ataque especial, 55 de defensa especial y 95 de velocidad. Total de estadisticas: 405. Mide 1.6 metros y pesa 0.1 kilos. Descripcion de la Pokedex: Cuando tienes la sensación de que te están observando, seguro que es porque Haunter está cerca."
+  },
+  {
+    "id": 94,
+    "nombre": "Gengar",
+    "texto": "Gengar es el pokemon numero 94. Es de tipo ghost y poison. Estadisticas de Gengar: 60 puntos de salud (HP), 65 de ataque, 60 de defensa, 130 de ataque especial, 75 de defensa especial y 110 de velocidad. Total de estadisticas: 500. Mide 1.5 metros y pesa 40.5 kilos. Descripcion de la Pokedex: Se esconde entre las sombras. Se dice que donde Gengar acecha, la temperatura baja 5 °C."
+  },
+  {
+    "id": 95,
+    "nombre": "Onix",
+    "texto": "Onix es el pokemon numero 95. Es de tipo rock y ground. Estadisticas de Onix: 35 puntos de salud (HP), 45 de ataque, 160 de defensa, 30 de ataque especial, 45 de defensa especial y 70 de velocidad. Total de estadisticas: 385. Mide 8.8 metros y pesa 210.0 kilos. Descripcion de la Pokedex: Cava a gran velocidad en busca de comida. Los túneles que deja son usados por los Diglett."
+  },
+  {
+    "id": 96,
+    "nombre": "Drowzee",
+    "texto": "Drowzee es el pokemon numero 96. Es de tipo psychic. Estadisticas de Drowzee: 60 puntos de salud (HP), 48 de ataque, 45 de defensa, 43 de ataque especial, 90 de defensa especial y 42 de velocidad. Total de estadisticas: 328. Mide 1.0 metros y pesa 32.4 kilos. Descripcion de la Pokedex: Adormece a sus enemigos y se come sus sueños. A veces se pone enfermo si come pesadillas."
+  },
+  {
+    "id": 97,
+    "nombre": "Hypno",
+    "texto": "Hypno es el pokemon numero 97. Es de tipo psychic. Estadisticas de Hypno: 85 puntos de salud (HP), 73 de ataque, 70 de defensa, 73 de ataque especial, 115 de defensa especial y 67 de velocidad. Total de estadisticas: 483. Mide 1.6 metros y pesa 75.6 kilos. Descripcion de la Pokedex: Lleva un péndulo en la mano. Una vez, hizo desaparecer a un niño al que había hipnotizado."
+  },
+  {
+    "id": 98,
+    "nombre": "Krabby",
+    "texto": "Krabby es el pokemon numero 98. Es de tipo water. Estadisticas de Krabby: 30 puntos de salud (HP), 105 de ataque, 90 de defensa, 25 de ataque especial, 25 de defensa especial y 50 de velocidad. Total de estadisticas: 325. Mide 0.4 metros y pesa 6.5 kilos. Descripcion de la Pokedex: Ante el peligro, se camufla con las burbujas que desprende su boca, para parecer más grande."
+  },
+  {
+    "id": 99,
+    "nombre": "Kingler",
+    "texto": "Kingler es el pokemon numero 99. Es de tipo water. Estadisticas de Kingler: 55 puntos de salud (HP), 130 de ataque, 115 de defensa, 50 de ataque especial, 50 de defensa especial y 75 de velocidad. Total de estadisticas: 475. Mide 1.3 metros y pesa 60.0 kilos. Descripcion de la Pokedex: La pinza tan grande que tiene posee una fuerza de 10 000 caballos de potencia. Pero, por su gran tamaño, cuesta moverla."
+  },
+  {
+    "id": 100,
+    "nombre": "Voltorb",
+    "texto": "Voltorb es el pokemon numero 100. Es de tipo electric. Estadisticas de Voltorb: 40 puntos de salud (HP), 30 de ataque, 50 de defensa, 55 de ataque especial, 55 de defensa especial y 100 de velocidad. Total de estadisticas: 330. Mide 0.5 metros y pesa 10.4 kilos. Descripcion de la Pokedex: Fue descubierto cuando se crearon las Poké Balls. Se dice que tiene algo que ver con ellas."
+  },
+  {
+    "id": 101,
+    "nombre": "Electrode",
+    "texto": "Electrode es el pokemon numero 101. Es de tipo electric. Estadisticas de Electrode: 60 puntos de salud (HP), 50 de ataque, 70 de defensa, 80 de ataque especial, 80 de defensa especial y 150 de velocidad. Total de estadisticas: 490. Mide 1.2 metros y pesa 66.6 kilos. Descripcion de la Pokedex: Explotan a la mínima. Por eso se les tiene mucho miedo. Estos Pokémon reciben el mote de Bomba Ball."
+  },
+  {
+    "id": 102,
+    "nombre": "Exeggcute",
+    "texto": "Exeggcute es el pokemon numero 102. Es de tipo grass y psychic. Estadisticas de Exeggcute: 60 puntos de salud (HP), 40 de ataque, 80 de defensa, 60 de ataque especial, 45 de defensa especial y 40 de velocidad. Total de estadisticas: 325. Mide 0.4 metros y pesa 2.5 kilos. Descripcion de la Pokedex: Estos seis huevos se comunican por telepatía. Si se separan, se pueden reunir rápidamente."
+  },
+  {
+    "id": 103,
+    "nombre": "Exeggutor",
+    "texto": "Exeggutor es el pokemon numero 103. Es de tipo grass y psychic. Estadisticas de Exeggutor: 95 puntos de salud (HP), 95 de ataque, 85 de defensa, 125 de ataque especial, 75 de defensa especial y 55 de velocidad. Total de estadisticas: 530. Mide 2.0 metros y pesa 120.0 kilos. Descripcion de la Pokedex: Sus tres cabezas piensan de forma independiente. Sin embargo, son amigas y no suelen discutir nunca."
+  },
+  {
+    "id": 104,
+    "nombre": "Cubone",
+    "texto": "Cubone es el pokemon numero 104. Es de tipo ground. Estadisticas de Cubone: 50 puntos de salud (HP), 50 de ataque, 95 de defensa, 40 de ataque especial, 50 de defensa especial y 35 de velocidad. Total de estadisticas: 320. Mide 0.4 metros y pesa 6.5 kilos. Descripcion de la Pokedex: Lleva puesto el cráneo de su madre. Cuando se siente solo se pone a gritar muy fuerte."
+  },
+  {
+    "id": 105,
+    "nombre": "Marowak",
+    "texto": "Marowak es el pokemon numero 105. Es de tipo ground. Estadisticas de Marowak: 60 puntos de salud (HP), 80 de ataque, 110 de defensa, 50 de ataque especial, 80 de defensa especial y 45 de velocidad. Total de estadisticas: 425. Mide 1.0 metros y pesa 45.0 kilos. Descripcion de la Pokedex: Es pequeño y siempre ha sido muy débil. Cuando empezó a usar huesos, se volvió más violento."
+  },
+  {
+    "id": 106,
+    "nombre": "Hitmonlee",
+    "texto": "Hitmonlee es el pokemon numero 106. Es de tipo fighting. Estadisticas de Hitmonlee: 50 puntos de salud (HP), 120 de ataque, 53 de defensa, 35 de ataque especial, 110 de defensa especial y 87 de velocidad. Total de estadisticas: 455. Mide 1.5 metros y pesa 49.8 kilos. Descripcion de la Pokedex: Encoge y estira las patas a su antojo. Cuando las estira, es capaz de propinar una buena patada al enemigo."
+  },
+  {
+    "id": 107,
+    "nombre": "Hitmonchan",
+    "texto": "Hitmonchan es el pokemon numero 107. Es de tipo fighting. Estadisticas de Hitmonchan: 50 puntos de salud (HP), 105 de ataque, 79 de defensa, 35 de ataque especial, 110 de defensa especial y 76 de velocidad. Total de estadisticas: 455. Mide 1.4 metros y pesa 50.2 kilos. Descripcion de la Pokedex: Los potentes golpes de sus brazos pueden pulverizar el hormigón. Descansa tras luchar tres minutos."
+  },
+  {
+    "id": 108,
+    "nombre": "Lickitung",
+    "texto": "Lickitung es el pokemon numero 108. Es de tipo normal. Estadisticas de Lickitung: 90 puntos de salud (HP), 55 de ataque, 75 de defensa, 60 de ataque especial, 75 de defensa especial y 30 de velocidad. Total de estadisticas: 385. Mide 1.2 metros y pesa 65.5 kilos. Descripcion de la Pokedex: Su larga lengua, recubierta de saliva pegajosa, se pega a todo, por lo que es muy útil."
+  },
+  {
+    "id": 109,
+    "nombre": "Koffing",
+    "texto": "Koffing es el pokemon numero 109. Es de tipo poison. Estadisticas de Koffing: 40 puntos de salud (HP), 65 de ataque, 95 de defensa, 60 de ataque especial, 45 de defensa especial y 35 de velocidad. Total de estadisticas: 340. Mide 0.6 metros y pesa 1.0 kilos. Descripcion de la Pokedex: Tiene forma de globo y es muy ligero. Está compuesto por gases tóxicos y apesta."
+  },
+  {
+    "id": 110,
+    "nombre": "Weezing",
+    "texto": "Weezing es el pokemon numero 110. Es de tipo poison. Estadisticas de Weezing: 65 puntos de salud (HP), 90 de ataque, 120 de defensa, 85 de ataque especial, 70 de defensa especial y 60 de velocidad. Total de estadisticas: 490. Mide 1.2 metros y pesa 9.5 kilos. Descripcion de la Pokedex: Si uno de los gemelos Koffing se infla, el otro se desinfla. Mezclan constantemente sus venenosos gases."
+  },
+  {
+    "id": 111,
+    "nombre": "Rhyhorn",
+    "texto": "Rhyhorn es el pokemon numero 111. Es de tipo ground y rock. Estadisticas de Rhyhorn: 80 puntos de salud (HP), 85 de ataque, 95 de defensa, 30 de ataque especial, 30 de defensa especial y 25 de velocidad. Total de estadisticas: 345. Mide 1.0 metros y pesa 115.0 kilos. Descripcion de la Pokedex: Es muy fuerte, pero no especialmente listo. Es capaz de derribar rascacielos usando Placaje varias veces."
+  },
+  {
+    "id": 112,
+    "nombre": "Rhydon",
+    "texto": "Rhydon es el pokemon numero 112. Es de tipo ground y rock. Estadisticas de Rhydon: 105 puntos de salud (HP), 130 de ataque, 120 de defensa, 45 de ataque especial, 45 de defensa especial y 40 de velocidad. Total de estadisticas: 485. Mide 1.9 metros y pesa 120.0 kilos. Descripcion de la Pokedex: La piel le sirve de escudo protector. Puede vivir en lava líquida a 2000 °C de temperatura."
+  },
+  {
+    "id": 113,
+    "nombre": "Chansey",
+    "texto": "Chansey es el pokemon numero 113. Es de tipo normal. Estadisticas de Chansey: 250 puntos de salud (HP), 5 de ataque, 5 de defensa, 35 de ataque especial, 105 de defensa especial y 50 de velocidad. Total de estadisticas: 450. Mide 1.1 metros y pesa 34.6 kilos. Descripcion de la Pokedex: Se dice que reparte felicidad. Se caracteriza por su compasión y reparte sus huevos entre la gente herida."
+  },
+  {
+    "id": 114,
+    "nombre": "Tangela",
+    "texto": "Tangela es el pokemon numero 114. Es de tipo grass. Estadisticas de Tangela: 65 puntos de salud (HP), 55 de ataque, 115 de defensa, 100 de ataque especial, 40 de defensa especial y 60 de velocidad. Total de estadisticas: 435. Mide 1.0 metros y pesa 35.0 kilos. Descripcion de la Pokedex: Se camufla con la multitud de lianas que envuelven su cuerpo y que no dejan de crecer a lo largo de toda su vida."
+  },
+  {
+    "id": 115,
+    "nombre": "Kangaskhan",
+    "texto": "Kangaskhan es el pokemon numero 115. Es de tipo normal. Estadisticas de Kangaskhan: 105 puntos de salud (HP), 95 de ataque, 80 de defensa, 40 de ataque especial, 80 de defensa especial y 90 de velocidad. Total de estadisticas: 490. Mide 2.2 metros y pesa 80.0 kilos. Descripcion de la Pokedex: Lleva a su cría en la bolsa de su panza. Solo deja que su cría salga a jugar cuando no siente peligro."
+  },
+  {
+    "id": 116,
+    "nombre": "Horsea",
+    "texto": "Horsea es el pokemon numero 116. Es de tipo water. Estadisticas de Horsea: 30 puntos de salud (HP), 40 de ataque, 70 de defensa, 70 de ataque especial, 25 de defensa especial y 60 de velocidad. Total de estadisticas: 295. Mide 0.4 metros y pesa 8.0 kilos. Descripcion de la Pokedex: Es famoso por derribar a bichos voladores lanzando tinta desde la superficie del agua."
+  },
+  {
+    "id": 117,
+    "nombre": "Seadra",
+    "texto": "Seadra es el pokemon numero 117. Es de tipo water. Estadisticas de Seadra: 55 puntos de salud (HP), 65 de ataque, 95 de defensa, 95 de ataque especial, 45 de defensa especial y 85 de velocidad. Total de estadisticas: 440. Mide 1.2 metros y pesa 25.0 kilos. Descripcion de la Pokedex: Las afiladas púas que le recubren el cuerpo se le erizan y pueden causar el debilitamiento con solo tocarlo."
+  },
+  {
+    "id": 118,
+    "nombre": "Goldeen",
+    "texto": "Goldeen es el pokemon numero 118. Es de tipo water. Estadisticas de Goldeen: 45 puntos de salud (HP), 67 de ataque, 60 de defensa, 35 de ataque especial, 50 de defensa especial y 63 de velocidad. Total de estadisticas: 320. Mide 0.6 metros y pesa 15.0 kilos. Descripcion de la Pokedex: Nada a una velocidad de cinco nudos. Si siente peligro, golpea con su afilado cuerno."
+  },
+  {
+    "id": 119,
+    "nombre": "Seaking",
+    "texto": "Seaking es el pokemon numero 119. Es de tipo water. Estadisticas de Seaking: 80 puntos de salud (HP), 92 de ataque, 65 de defensa, 65 de ataque especial, 80 de defensa especial y 68 de velocidad. Total de estadisticas: 450. Mide 1.3 metros y pesa 39.0 kilos. Descripcion de la Pokedex: En otoño, cuando se reproducen, se les puede ver nadando con energía por ríos y arroyos."
+  },
+  {
+    "id": 120,
+    "nombre": "Staryu",
+    "texto": "Staryu es el pokemon numero 120. Es de tipo water. Estadisticas de Staryu: 30 puntos de salud (HP), 45 de ataque, 55 de defensa, 70 de ataque especial, 55 de defensa especial y 85 de velocidad. Total de estadisticas: 340. Mide 0.8 metros y pesa 34.5 kilos. Descripcion de la Pokedex: Aunque sus brazos se rompan podrán regenerarse, siempre y cuando su núcleo siga intacto."
+  },
+  {
+    "id": 121,
+    "nombre": "Starmie",
+    "texto": "Starmie es el pokemon numero 121. Es de tipo water y psychic. Estadisticas de Starmie: 60 puntos de salud (HP), 75 de ataque, 85 de defensa, 100 de ataque especial, 85 de defensa especial y 115 de velocidad. Total de estadisticas: 520. Mide 1.1 metros y pesa 80.0 kilos. Descripcion de la Pokedex: Su núcleo central brilla con los colores del arcoíris. Para algunos tiene el valor de una gema."
+  },
+  {
+    "id": 122,
+    "nombre": "Mr-mime",
+    "texto": "Mr-mime es el pokemon numero 122. Es de tipo psychic y fairy. Estadisticas de Mr-mime: 40 puntos de salud (HP), 45 de ataque, 65 de defensa, 100 de ataque especial, 120 de defensa especial y 90 de velocidad. Total de estadisticas: 460. Mide 1.3 metros y pesa 54.5 kilos. Descripcion de la Pokedex: Para repeler ataques, solidifica el aire y crea muros invisibles con emanaciones de sus dedos."
+  },
+  {
+    "id": 123,
+    "nombre": "Scyther",
+    "texto": "Scyther es el pokemon numero 123. Es de tipo bug y flying. Estadisticas de Scyther: 70 puntos de salud (HP), 110 de ataque, 80 de defensa, 55 de ataque especial, 80 de defensa especial y 105 de velocidad. Total de estadisticas: 500. Mide 1.5 metros y pesa 56.0 kilos. Descripcion de la Pokedex: Destroza a su presa con las guadañas que tiene. No es común que use las alas para volar."
+  },
+  {
+    "id": 124,
+    "nombre": "Jynx",
+    "texto": "Jynx es el pokemon numero 124. Es de tipo ice y psychic. Estadisticas de Jynx: 65 puntos de salud (HP), 50 de ataque, 35 de defensa, 115 de ataque especial, 95 de defensa especial y 95 de velocidad. Total de estadisticas: 455. Mide 1.4 metros y pesa 40.6 kilos. Descripcion de la Pokedex: Camina moviendo las caderas de forma llamativa. Puede hacer que la gente baile a su ritmo."
+  },
+  {
+    "id": 125,
+    "nombre": "Electabuzz",
+    "texto": "Electabuzz es el pokemon numero 125. Es de tipo electric. Estadisticas de Electabuzz: 65 puntos de salud (HP), 83 de ataque, 57 de defensa, 95 de ataque especial, 85 de defensa especial y 105 de velocidad. Total de estadisticas: 490. Mide 1.1 metros y pesa 30.0 kilos. Descripcion de la Pokedex: Por la superficie de su piel corre la electricidad. En la oscuridad, su cuerpo se torna blanquecino."
+  },
+  {
+    "id": 126,
+    "nombre": "Magmar",
+    "texto": "Magmar es el pokemon numero 126. Es de tipo fire. Estadisticas de Magmar: 65 puntos de salud (HP), 95 de ataque, 57 de defensa, 100 de ataque especial, 85 de defensa especial y 93 de velocidad. Total de estadisticas: 495. Mide 1.3 metros y pesa 44.5 kilos. Descripcion de la Pokedex: A este Pokémon se lo encontraron cerca de un volcán. Esta criatura ígnea tiene una temperatura corporal de unos 1200 °C."
+  },
+  {
+    "id": 127,
+    "nombre": "Pinsir",
+    "texto": "Pinsir es el pokemon numero 127. Es de tipo bug. Estadisticas de Pinsir: 65 puntos de salud (HP), 125 de ataque, 100 de defensa, 55 de ataque especial, 70 de defensa especial y 85 de velocidad. Total de estadisticas: 500. Mide 1.5 metros y pesa 55.0 kilos. Descripcion de la Pokedex: Atrapa presas con sus pinzas hasta que las parte en dos. Lanza lejos lo que no puede quebrar."
+  },
+  {
+    "id": 128,
+    "nombre": "Tauros",
+    "texto": "Tauros es el pokemon numero 128. Es de tipo normal. Estadisticas de Tauros: 75 puntos de salud (HP), 100 de ataque, 95 de defensa, 40 de ataque especial, 70 de defensa especial y 110 de velocidad. Total de estadisticas: 490. Mide 1.4 metros y pesa 88.4 kilos. Descripcion de la Pokedex: Después de animarse a luchar fustigándose con sus tres colas, carga a toda velocidad."
+  },
+  {
+    "id": 129,
+    "nombre": "Magikarp",
+    "texto": "Magikarp es el pokemon numero 129. Es de tipo water. Estadisticas de Magikarp: 20 puntos de salud (HP), 10 de ataque, 55 de defensa, 15 de ataque especial, 20 de defensa especial y 80 de velocidad. Total de estadisticas: 200. Mide 0.9 metros y pesa 10.0 kilos. Descripcion de la Pokedex: No es precisamente rápido ni fuerte. Es el Pokémon más debilucho y simplón de todos los que hay."
+  },
+  {
+    "id": 130,
+    "nombre": "Gyarados",
+    "texto": "Gyarados es el pokemon numero 130. Es de tipo water y flying. Estadisticas de Gyarados: 95 puntos de salud (HP), 125 de ataque, 79 de defensa, 60 de ataque especial, 100 de defensa especial y 81 de velocidad. Total de estadisticas: 540. Mide 6.5 metros y pesa 235.0 kilos. Descripcion de la Pokedex: En la literatura antigua se dice que un Gyarados rebosante de violencia arrasó un poblado."
+  },
+  {
+    "id": 131,
+    "nombre": "Lapras",
+    "texto": "Lapras es el pokemon numero 131. Es de tipo water y ice. Estadisticas de Lapras: 130 puntos de salud (HP), 85 de ataque, 80 de defensa, 85 de ataque especial, 95 de defensa especial y 60 de velocidad. Total de estadisticas: 535. Mide 2.5 metros y pesa 220.0 kilos. Descripcion de la Pokedex: Son buenos de corazón. Muchos fueron capturados por ser tan pacíficos. Ahora hay muchos menos."
+  },
+  {
+    "id": 132,
+    "nombre": "Ditto",
+    "texto": "Ditto es el pokemon numero 132. Es de tipo normal. Estadisticas de Ditto: 48 puntos de salud (HP), 48 de ataque, 48 de defensa, 48 de ataque especial, 48 de defensa especial y 48 de velocidad. Total de estadisticas: 288. Mide 0.3 metros y pesa 4.0 kilos. Descripcion de la Pokedex: Puede alterar por completo su estructura celular para emular cualquier objeto que vea."
+  },
+  {
+    "id": 133,
+    "nombre": "Eevee",
+    "texto": "Eevee es el pokemon numero 133. Es de tipo normal. Estadisticas de Eevee: 55 puntos de salud (HP), 55 de ataque, 50 de defensa, 45 de ataque especial, 65 de defensa especial y 55 de velocidad. Total de estadisticas: 325. Mide 0.3 metros y pesa 6.5 kilos. Descripcion de la Pokedex: Un extraño Pokémon que se adapta a los entornos más hostiles gracias a sus diferentes evoluciones."
+  },
+  {
+    "id": 134,
+    "nombre": "Vaporeon",
+    "texto": "Vaporeon es el pokemon numero 134. Es de tipo water. Estadisticas de Vaporeon: 130 puntos de salud (HP), 65 de ataque, 60 de defensa, 110 de ataque especial, 95 de defensa especial y 65 de velocidad. Total de estadisticas: 525. Mide 1.0 metros y pesa 29.0 kilos. Descripcion de la Pokedex: Prefiere las bellas costas. Con células parecidas al agua, podría fundirse en la misma."
+  },
+  {
+    "id": 135,
+    "nombre": "Jolteon",
+    "texto": "Jolteon es el pokemon numero 135. Es de tipo electric. Estadisticas de Jolteon: 65 puntos de salud (HP), 65 de ataque, 60 de defensa, 110 de ataque especial, 95 de defensa especial y 130 de velocidad. Total de estadisticas: 525. Mide 0.8 metros y pesa 24.5 kilos. Descripcion de la Pokedex: Todos los pelos de su cuerpo se ponen de punta si empieza a cargarse de electricidad."
+  },
+  {
+    "id": 136,
+    "nombre": "Flareon",
+    "texto": "Flareon es el pokemon numero 136. Es de tipo fire. Estadisticas de Flareon: 65 puntos de salud (HP), 130 de ataque, 60 de defensa, 95 de ataque especial, 110 de defensa especial y 65 de velocidad. Total de estadisticas: 525. Mide 0.9 metros y pesa 25.0 kilos. Descripcion de la Pokedex: Almacena llamas en su cuerpo, que alcanza una temperatura de 900 °C antes de un combate."
+  },
+  {
+    "id": 137,
+    "nombre": "Porygon",
+    "texto": "Porygon es el pokemon numero 137. Es de tipo normal. Estadisticas de Porygon: 65 puntos de salud (HP), 60 de ataque, 70 de defensa, 85 de ataque especial, 75 de defensa especial y 40 de velocidad. Total de estadisticas: 395. Mide 0.8 metros y pesa 36.5 kilos. Descripcion de la Pokedex: Pokémon creado por el hombre tras muchas investigaciones. Sus habilidades son básicas."
+  },
+  {
+    "id": 138,
+    "nombre": "Omanyte",
+    "texto": "Omanyte es el pokemon numero 138. Es de tipo rock y water. Estadisticas de Omanyte: 35 puntos de salud (HP), 40 de ataque, 100 de defensa, 90 de ataque especial, 55 de defensa especial y 35 de velocidad. Total de estadisticas: 355. Mide 0.4 metros y pesa 7.5 kilos. Descripcion de la Pokedex: Pokémon prehistórico que vivió en el océano primordial. Para nadar se valía de sus 10 tentáculos."
+  },
+  {
+    "id": 139,
+    "nombre": "Omastar",
+    "texto": "Omastar es el pokemon numero 139. Es de tipo rock y water. Estadisticas de Omastar: 70 puntos de salud (HP), 60 de ataque, 125 de defensa, 115 de ataque especial, 70 de defensa especial y 55 de velocidad. Total de estadisticas: 495. Mide 1.0 metros y pesa 35.0 kilos. Descripcion de la Pokedex: Tiene los tentáculos tan desarrollados que le sirven de manos y pies. Con ellos atrapa a su presa y le da un bocado."
+  },
+  {
+    "id": 140,
+    "nombre": "Kabuto",
+    "texto": "Kabuto es el pokemon numero 140. Es de tipo rock y water. Estadisticas de Kabuto: 30 puntos de salud (HP), 80 de ataque, 90 de defensa, 55 de ataque especial, 45 de defensa especial y 55 de velocidad. Total de estadisticas: 355. Mide 0.5 metros y pesa 11.5 kilos. Descripcion de la Pokedex: Se cree que habitó las playas hace 300 millones de años. Se protege con una dura concha."
+  },
+  {
+    "id": 141,
+    "nombre": "Kabutops",
+    "texto": "Kabutops es el pokemon numero 141. Es de tipo rock y water. Estadisticas de Kabutops: 60 puntos de salud (HP), 115 de ataque, 105 de defensa, 65 de ataque especial, 70 de defensa especial y 80 de velocidad. Total de estadisticas: 495. Mide 1.3 metros y pesa 40.5 kilos. Descripcion de la Pokedex: Repliega sus extremidades en el agua para hacerse más compacto, y mueve su concha para nadar rápido."
+  },
+  {
+    "id": 142,
+    "nombre": "Aerodactyl",
+    "texto": "Aerodactyl es el pokemon numero 142. Es de tipo rock y flying. Estadisticas de Aerodactyl: 80 puntos de salud (HP), 105 de ataque, 65 de defensa, 60 de ataque especial, 75 de defensa especial y 130 de velocidad. Total de estadisticas: 515. Mide 1.8 metros y pesa 59.0 kilos. Descripcion de la Pokedex: Se regeneró a partir de material genético de un dinosaurio encontrado en ámbar. Cuando vuela emite escandalosos alaridos."
+  },
+  {
+    "id": 143,
+    "nombre": "Snorlax",
+    "texto": "Snorlax es el pokemon numero 143. Es de tipo normal. Estadisticas de Snorlax: 160 puntos de salud (HP), 110 de ataque, 65 de defensa, 65 de ataque especial, 110 de defensa especial y 30 de velocidad. Total de estadisticas: 540. Mide 2.1 metros y pesa 460.0 kilos. Descripcion de la Pokedex: No se encuentra satisfecho hasta que no se come 400 kg de comida cada día. Cuando acaba de comer, se queda dormido."
+  },
+  {
+    "id": 144,
+    "nombre": "Articuno",
+    "texto": "Articuno es el pokemon numero 144. Es de tipo ice y flying. Estadisticas de Articuno: 90 puntos de salud (HP), 85 de ataque, 100 de defensa, 95 de ataque especial, 125 de defensa especial y 85 de velocidad. Total de estadisticas: 580. Mide 1.7 metros y pesa 55.4 kilos. Es un pokemon legendario. Descripcion de la Pokedex: Legendario Pokémon pájaro capaz de generar ventiscas congelando la humedad del aire."
+  },
+  {
+    "id": 145,
+    "nombre": "Zapdos",
+    "texto": "Zapdos es el pokemon numero 145. Es de tipo electric y flying. Estadisticas de Zapdos: 90 puntos de salud (HP), 90 de ataque, 85 de defensa, 125 de ataque especial, 90 de defensa especial y 100 de velocidad. Total de estadisticas: 580. Mide 1.6 metros y pesa 52.6 kilos. Es un pokemon legendario. Descripcion de la Pokedex: Es un legendario pájaro Pokémon. Dicen que aparece entre las nubes lanzando enormes rayos brillantes."
+  },
+  {
+    "id": 146,
+    "nombre": "Moltres",
+    "texto": "Moltres es el pokemon numero 146. Es de tipo fire y flying. Estadisticas de Moltres: 90 puntos de salud (HP), 100 de ataque, 90 de defensa, 125 de ataque especial, 85 de defensa especial y 90 de velocidad. Total de estadisticas: 580. Mide 2.0 metros y pesa 60.0 kilos. Es un pokemon legendario. Descripcion de la Pokedex: Es más conocido como el legendario pájaro de fuego. Con cada aleteo crea brillantes llamas."
+  },
+  {
+    "id": 147,
+    "nombre": "Dratini",
+    "texto": "Dratini es el pokemon numero 147. Es de tipo dragon. Estadisticas de Dratini: 41 puntos de salud (HP), 64 de ataque, 45 de defensa, 50 de ataque especial, 50 de defensa especial y 50 de velocidad. Total de estadisticas: 300. Mide 1.8 metros y pesa 3.3 kilos. Descripcion de la Pokedex: Se le llama el Pokémon Espejismo porque son muy pocos los que lo han visto. Se encontró su muda."
+  },
+  {
+    "id": 148,
+    "nombre": "Dragonair",
+    "texto": "Dragonair es el pokemon numero 148. Es de tipo dragon. Estadisticas de Dragonair: 61 puntos de salud (HP), 84 de ataque, 65 de defensa, 70 de ataque especial, 70 de defensa especial y 70 de velocidad. Total de estadisticas: 420. Mide 4.0 metros y pesa 16.5 kilos. Descripcion de la Pokedex: Sus cristalinos orbes parecen darle al Pokémon el poder de controlar el clima libremente."
+  },
+  {
+    "id": 149,
+    "nombre": "Dragonite",
+    "texto": "Dragonite es el pokemon numero 149. Es de tipo dragon y flying. Estadisticas de Dragonite: 91 puntos de salud (HP), 134 de ataque, 95 de defensa, 100 de ataque especial, 100 de defensa especial y 80 de velocidad. Total de estadisticas: 600. Mide 2.2 metros y pesa 210.0 kilos. Descripcion de la Pokedex: A pesar del tamaño que tiene y de lo pesado que es, puede volar. Es capaz de dar la vuelta al mundo en solo 16 horas."
+  },
+  {
+    "id": 150,
+    "nombre": "Mewtwo",
+    "texto": "Mewtwo es el pokemon numero 150. Es de tipo psychic. Estadisticas de Mewtwo: 106 puntos de salud (HP), 110 de ataque, 90 de defensa, 154 de ataque especial, 90 de defensa especial y 130 de velocidad. Total de estadisticas: 680. Mide 2.0 metros y pesa 122.0 kilos. Es un pokemon legendario. Descripcion de la Pokedex: Fue creado por un científico tras años de horribles experimentos de ingeniería genética."
+  },
+  {
+    "id": 151,
+    "nombre": "Mew",
+    "texto": "Mew es el pokemon numero 151. Es de tipo psychic. Estadisticas de Mew: 100 puntos de salud (HP), 100 de ataque, 100 de defensa, 100 de ataque especial, 100 de defensa especial y 100 de velocidad. Total de estadisticas: 600. Mide 0.4 metros y pesa 4.0 kilos. Es un pokemon legendario. Descripcion de la Pokedex: Varios científicos lo consideran el antecesor de los Pokémon porque usa todo tipo de movimientos."
+  }
+]

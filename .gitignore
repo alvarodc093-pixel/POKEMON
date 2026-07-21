@@ -1,0 +1,9 @@
+# Secretos: la API key jamas al repositorio
+.streamlit/secrets.toml
+
+# Artefactos que se regeneran en cada maquina
+chroma_pokedex/
+informe.csv
+__pycache__/
+.venv/
+ 
