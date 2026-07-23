@@ -1,7 +1,8 @@
+from email.mime import message
+
 import chromadb
 import ollama
 from ollama import Client
-client = Client()
 import streamlit as st
 from pathlib import Path
 import pandas as pd
@@ -17,17 +18,24 @@ COLOR_TIPO = {
     "rock": "#B6A136", "ghost": "#735797", "dragon": "#6F35FC", "dark": "#705746",
     "steel": "#B7B7CE", "fairy": "#D685AD"}
 
-# CINSTANTES DEL RAG    
+# CONSTANTES DEL RAG
 
-MODELO_EMBEDDINGS = "embbedinggemma"
+MODELO_EMBEDDINGS = "embeddinggemma"
+MODELO_CLOUD = "gpt-oss:120b"
 
-MODELO_CLOUD = "GPT-OSS:120B"
-
-MODELO_LOCAL = "qwen3.5:latest "
+MODELO_LOCAL = "qwen3.5:2b-mlx"
 
 K_FICHAS = 4
 
-SYSTEM_CHAT = """Eres el asistente de una Pokedex. Respondes preguntas sobre los 151 pokemon originales.REGLAS ESTRICTAS:1. Responde UNICAMENTE con la informacion de las FICHAS que se te proporcionan.2. Si la respuesta no esta en las fichas, di exactamente: "No tengo esa informacion en la Pokedex."3. Cuando des un dato, di de que pokemon lo sacas.Responde en espanol, breve"""
+SYSTEM_CHAT = """Eres el asistente de una Pokedex. Respondes preguntas sobre los 151 pokemon originales.
+
+REGLAS ESTRICTAS:
+1. Responde UNICAMENTE con la informacion de las FICHAS que se te proporcionan.
+2. Si la respuesta no esta en las fichas, di exactamente: "No tengo esa informacion en la Pokedex."
+3. Cuando des un dato, di de que pokemon lo sacas.
+
+Responde en espanol, breve y directo."""
+
 
 
 def oscurece(hex_color, factor=0.65):                # devuelve una versión más oscura de un color (para el degradado)
@@ -70,6 +78,42 @@ def buscar_fichas(pregunta, k=K_FICHAS):
     return list(zip(nombres, textos))  # [(nombre1, texto1), (
 
 
+@st.cache_resource
+def elegir_llm():
+    """Decide que modelo responde: el de la nube si hay API KEY, el local si no"""
+    try:
+        api_key = st.secrets.get("OLLAMA_API_KEY", "")
+
+    except FileNotFoundError:
+        api_key = ""
+
+    if api_key:
+        cliente = Client(
+            host="https://ollama.com",
+            headers={"Authorization": "Bearer " + api_key},
+        )   
+        return cliente, MODELO_CLOUD, f"{MODELO_CLOUD} (nube)"
+
+    return None, MODELO_LOCAL, f"{MODELO_LOCAL} (local)"
+
+def responder(pregunta, fichas):
+    """Genera la respuesta a la pregunta usando las fichas como contexto"""
+    context = "\n\n".join([f"FICHA DE {nombre.upper()}:\n{texto}" for nombre, texto in fichas])
+    prompt = f"FICHAS:\n{context}\n\nPREGUNTA: {pregunta}"
+
+    cliente, modelo, _ = elegir_llm()
+    mensajes = [
+        {"role": "system", "content": SYSTEM_CHAT},
+        {"role": "user", "content": prompt},
+    ]
+    try:
+        respuesta = cliente.chat(model=modelo, messages=mensajes, think=False, options={"temperature": 0})
+
+    except ollama.ResponseError as e:
+       respuesta = cliente.chat(model=modelo, messages=mensajes, options={"temperature": 0})
+
+    return respuesta["message"]["content"]
+
 
 st.sidebar.title("Filtros")
 busca = st.sidebar.text_input("Busca por nombre", placeholder="Ejemplo: Pikachu")
@@ -88,7 +132,7 @@ if solo_legendarios:
 f = f[f["total"] >= total_min]    
 
 
-tab_inicio, tab_dex, tab_ficha, tab_versus = st.tabs(["Inicio", "Pokedex", "Ficha", "Comparador"])
+tab_inicio, tab_dex, tab_ficha, tab_versus, tab_chat = st.tabs(["Inicio", "Pokedex", "Ficha", "Comparador", "Chat"])
 
 with tab_ficha:
     izq, der = st.columns([1,2 ]) # [1,2] significa que la columna izquierda ocupa 1/3 del ancho y la derecha 2/3
@@ -114,7 +158,7 @@ with tab_ficha:
             polar=dict(radialaxis=dict(range=[0,255])),
             title=f"Stats de {p['name']}") 
         st.plotly_chart(fig, width="stretch")
-    
+
 
 with tab_dex:
     if not len(f):
@@ -170,7 +214,43 @@ with tab_inicio:
     </div>
     """, unsafe_allow_html=True)
 
-    with tab_chat:
 
-        _, _, etiqueta_modelo = elegir_llm()
+with tab_chat:
+
+    # Con que modelo estamos respondiendo: nube o local. Se muestra en la parte inferior de la barra lateral
+    _, _, etiqueta_modelo = elegir_llm()
     st.caption(f"💬 Modelo de chat: {etiqueta_modelo}")
+
+    # Streamlit re-ejecuta el script entero en cada interacción, así que necesitamos guardar el historial de preguntas y respuestas en session_state
+    if "historial" not in st.session_state:
+        st.session_state.historial = []  # lista de tuplas (pregunta, respuesta)
+
+    for mensaje in st.session_state.historial:  # mostramos el historial de preguntas y respuestas
+        with st.chat_message(mensaje["role"]):
+            st.markdown(mensaje["content"])
+            if mensaje.get("fuentes"):
+                with st.expander("Fichas consultadas"):
+                    for nombre, texto in mensaje["fuentes"]:
+                        st.markdown(f"**{nombre}**: {texto}")
+
+
+    pregunta = st.chat_input("Pregunta a la Pokedex")
+            # Guardamos la pregunta en el historial y la mostramos en pantalla
+    if pregunta:
+            st.session_state.historial.append({"role": "user", "content": pregunta})  # guardamos la pregunta en el historial
+            with st.chat_message("user"):
+                    st.markdown(pregunta)
+
+                # RAG: Recuperar las fichas más relevantes y generar la respuesta
+            with st.chat_message("assistant"):
+                with st.spinner("Consultando la Pokedex..."):
+                    fichas = buscar_fichas(pregunta)
+                    respuesta = responder(pregunta, fichas)
+                    st.markdown(respuesta)
+                    with st.expander("Fichas consultadas"):
+                        for nombre, texto in fichas:
+                            st.markdown(f"**{nombre}**: {texto}")
+
+            st.session_state.historial.append({"role": "assistant", "content": respuesta, "fuentes": fichas})  # guardamos la respuesta en el historial            
+
+ 
