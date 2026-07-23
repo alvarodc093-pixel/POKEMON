@@ -254,32 +254,3 @@ with tab_chat:
             st.session_state.historial.append({"role": "assistant", "content": respuesta, "fuentes": fichas})  # guardamos la respuesta en el historial            
 
  
-st.sidebar.title("Filtros")
-busca = st.sidebar.text_input("Busca por nombre", placeholder="Ejemplo: Pikachu")
-sel_tipo = st.sidebar.multiselect("Tipo principal", sorted(df["type_1"].dropna().unique()))
-solo_legendarios = st.sidebar.checkbox("Solo legendarios")
-total_min = st.sidebar.slider("Total de stats mínimo", 0, int(df["total"].max()), 0, 10)
-
-st.sidebar.title("Filtros")
-busca = st.sidebar.text_input("Busca por nombre", placeholder="Ejemplo: Pikachu")
-sel_tipo = st.sidebar.multiselect("Tipo principal", sorted(df["type_1"].dropna().unique()))
-solo_legendarios = st.sidebar.checkbox("Solo legendarios")
-total_min = st.sidebar.slider("Total de stats mínimo", 0, int(df["total"].max()), 0, 10)
-
-st.sidebar.title("Filtros")
-busca = st.sidebar.text_input("Busca por nombre", placeholder="Ejemplo: Pikachu")
-sel_tipo = st.sidebar.multiselect("Tipo principal", sorted(df["type_1"].dropna().unique()))
-solo_legendarios = st.sidebar.checkbox("Solo legendarios")
-total_min = st.sidebar.slider("Total de stats mínimo", 0, int(df["total"].max()), 0, 10)
-
-st.sidebar.title("Filtros")
-busca = st.sidebar.text_input("Busca por nombre", placeholder="Ejemplo: Pikachu")
-sel_tipo = st.sidebar.multiselect("Tipo principal", sorted(df["type_1"].dropna().unique()))
-solo_legendarios = st.sidebar.checkbox("Solo legendarios")
-total_min = st.sidebar.slider("Total de stats mínimo", 0, int(df["total"].max()), 0, 10)
-
-st.sidebar.title("Filtros")
-busca = st.sidebar.text_input("Busca por nombre", placeholder="Ejemplo: Pikachu")
-sel_tipo = st.sidebar.multiselect("Tipo principal", sorted(df["type_1"].dropna().unique()))
-solo_legendarios = st.sidebar.checkbox("Solo legendarios")
-total_min = st.sidebar.slider("Total de stats mínimo", 0, int(df["total"].max()), 0, 10)
