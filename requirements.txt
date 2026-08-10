@@ -3,6 +3,5 @@ pandas
 plotly
 requests
 ollama>=0.4
-chromadb>=0.5
 mysql-connector-python
 certifi

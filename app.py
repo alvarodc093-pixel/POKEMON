@@ -1,5 +1,6 @@
+import json
+
 import certifi
-import chromadb
 import mysql.connector
 import ollama
 from ollama import Client
@@ -59,7 +60,6 @@ COLOR_TIPO = {
 
 # CONSTANTES DEL RAG
 
-MODELO_EMBEDDINGS = "embeddinggemma"
 MODELO_CLOUD = "gpt-oss:120b"
 
 MODELO_LOCAL = "qwen3.5:latest"
@@ -89,7 +89,16 @@ def badge_html(tipo):                                # 'píldora' HTML con el no
 
 def conectar():
     """Abre una conexion al cluster TiDB con las credenciales de st.secrets"""
-    return mysql.connector.connect(**st.secrets["tidb"], ssl_ca=certifi.where())
+    try:
+        tidb = st.secrets["tidb"]
+    except (KeyError, FileNotFoundError):
+        st.error(
+            "Faltan las credenciales de la base de datos. "
+            "Añade la seccion `[tidb]` en Settings -> Secrets de Streamlit Cloud, "
+            "o en .streamlit/secrets.toml si ejecutas en local."
+        )
+        st.stop()
+    return mysql.connector.connect(**tidb, ssl_ca=certifi.where())
 
 
 @st.cache_data
@@ -104,28 +113,122 @@ def cargar():
 
 df = cargar()
 
+# ---------------- RECUPERACION DE FICHAS (RAG) ----------------
+# Se usan las fichas de texto (fichas_pokemon.json, commiteado al repo) con una
+# busqueda por coincidencia de terminos: funciona igual en local y en la nube,
+# sin depender de un servidor de embeddings (Ollama local no existe en la nube).
+
+# Traduccion es->en de los tipos para que "de fuego" encuentre "fire", etc.
+TRADUCCION_TIPOS = {
+    "normal": "normal", "fuego": "fire", "agua": "water", "planta": "grass",
+    "hierba": "grass", "electrico": "electric", "hielo": "ice", "lucha": "fighting",
+    "veneno": "poison", "tierra": "ground", "volador": "flying", "psiquico": "psychic",
+    "bicho": "bug", "roca": "rock", "fantasma": "ghost", "dragon": "dragon",
+    "siniestro": "dark", "acero": "steel", "hada": "fairy",
+}
+# Sinonimos de stats para entender preguntas como "mas rapido" o "el mas fuerte"
+SINONIMOS_STATS = {
+    "rapido": "velocidad", "veloz": "velocidad", "rapida": "velocidad",
+    "fuerte": "ataque", "fuerte": "ataque", "fuerza": "ataque",
+    "tanque": "defensa", "resistente": "defensa", "aguante": "defensa",
+    "vida": "salud", "hp": "salud",
+}
+STOPWORDS = {"de", "los", "las", "el", "la", "cuales", "cual", "son", "es", "que",
+             "un", "una", "y", "por", "cuantos", "como", "a", "al", "en", "del",
+             "hay", "me", "se", "su", "con", "para", "no", "si", "lo", "mi"}
+
+
 @st.cache_resource
-def conectar_indice():
-    """Abre el indice vectorial creado por preparar_corpus.py"""
-    ruta = Path(__file__).parent / "chroma_pokedex"
+def cargar_fichas():
+    """Carga las fichas de texto desde fichas_pokemon.json"""
+    ruta = Path(__file__).parent / "fichas_pokemon.json"
     if not ruta.exists():
-        st.error("No se ha encontrado el índice vectorial. Ejecuta primero preparar_corpus.py")
+        st.error("No se encuentra fichas_pokemon.json. Ejecuta preparar_corpus.py")
         st.stop()
-    cliente = chromadb.PersistentClient(path=str(ruta))
-    return cliente.get_collection("fichas_pokemon")    
+    return json.loads(ruta.read_text(encoding="utf-8"))
+
+
+def tokenizar(texto):
+    """Devuelve los tokens de un texto en minusculas y sin acentos."""
+    import re
+    import unicodedata
+    texto = unicodedata.normalize("NFD", texto.lower())
+    texto = "".join(c for c in texto if unicodedata.category(c) != "Mn")  # quita acentos
+    return set(re.findall(r"[a-z0-9]+", texto))
+
+
+def terminos_pregunta(pregunta):
+    """Terminos de la pregunta ampliados con la traduccion de tipos y sinonimos de stats."""
+    terminos = tokenizar(pregunta) - STOPWORDS
+    ampliados = set(terminos)
+    for t in terminos:
+        en = TRADUCCION_TIPOS.get(t) or SINONIMOS_STATS.get(t)
+        if en:
+            ampliados.add(en)
+    return ampliados
+
+
+# Cual termino de la pregunta apunta a una estadistica (para ordenar por su valor)
+STATS_FICHA = {
+    "salud": "salud", "hp": "salud", "vida": "salud",
+    "ataque": "ataque", "fuerza": "ataque", "fuerte": "ataque",
+    "defensa": "defensa", "resistencia": "defensa", "tanque": "defensa",
+    "especial": "especial", "velocidad": "velocidad", "rapido": "velocidad", "veloz": "velocidad",
+}
+
+
+def stat_pregunta(terminos):
+    """Devuelve la estadistica que se pregunta, si la hay."""
+    for t in terminos:
+        if t in STATS_FICHA:
+            return STATS_FICHA[t]
+    return None
+
+
+def valor_stat(texto, stat):
+    """Extrae el valor numerico de una estadistica dentro de la ficha."""
+    import re
+    if stat == "especial":  # "especial" a secas -> ataque especial (mas representativo)
+        stat = "ataque especial"
+    m = re.search(r"(\d+)\s+puntos de " + re.escape(stat), texto)          # salud (HP)
+    if not m:
+        m = re.search(r"(\d+)\s+de " + re.escape(stat) + r"\b", texto)     # ataque, defensa, velocidad
+    return int(m.group(1)) if m else 0
+
 
 def buscar_fichas(pregunta, k=K_FICHAS):
-    """Recupera las k fichas más relevantes para la pregunta, usando el índice vectorial"""
-    vector = ollama.embed(
-        model=MODELO_EMBEDDINGS,
-        input=f"task: search result | query: {pregunta}",
-    )["embeddings"]
+    """Recupera las k fichas mas relevantes por coincidencia de terminos."""
+    terminos = terminos_pregunta(pregunta)
+    fichas = cargar_fichas()
+    stat = stat_pregunta(terminos)
 
-    resultados = conectar_indice().query(query_embeddings=vector, n_results=k)
+    puntuadas = []
+    for f in fichas:
+        tokens = tokenizar(f["texto"])
+        coincidencias = len(terminos & tokens)
+        if coincidencias:
+            # Si se pregunta por una stat, ordenaremos por su valor real
+            valor = valor_stat(f["texto"], stat) if stat else 0
+            puntuadas.append((coincidencias, valor, f["nombre"], f["texto"]))
 
-    nombres = [m["nombre"] for m in resultados["metadatas"][0]]
-    textos = resultados["documents"][0]
-    return list(zip(nombres, textos))  # [(nombre1, texto1), (
+    # Si la pregunta es "legendario", favorece las fichas que lo mencionan
+    if "legendario" in terminos:
+        puntuadas = [(c, v, n, t) for c, v, n, t in puntuadas if "legendario" in t]
+        puntuadas.sort(key=lambda x: -x[0])
+        seleccion = puntuadas[:k]
+    elif stat:
+        # Ordena por valor de la stat de mayor a menor (desempata con coincidencias)
+        puntuadas.sort(key=lambda x: (-x[1], -x[0]))
+        seleccion = puntuadas[:k]
+    else:
+        puntuadas.sort(key=lambda x: -x[0])
+        seleccion = puntuadas[:k]
+
+    if not seleccion:
+        st.info("No he encontrado fichas relacionadas con tu pregunta. Pregunta por "
+                "tipos, nombres o estadisticas.")
+        return []
+    return [(nombre, texto) for _, _, nombre, texto in seleccion]
 
 
 @st.cache_resource
@@ -149,6 +252,8 @@ def elegir_llm():
 
 def responder(pregunta, fichas):
     """Genera la respuesta a la pregunta usando las fichas como contexto"""
+    if not fichas:
+        return "No tengo esa informacion en la Pokedex."
     context = "\n\n".join([f"FICHA DE {nombre.upper()}:\n{texto}" for nombre, texto in fichas])
     prompt = f"FICHAS:\n{context}\n\nPREGUNTA: {pregunta}"
 

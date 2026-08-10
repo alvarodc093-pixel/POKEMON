@@ -31,16 +31,15 @@ La app tiene **5 pestañas**:
 ```
 app.py  ──►  TiDB Cloud (base de datos en la nube) ──►  pokemon.csv (subido una vez)
               │
-              └─► [Chat RAG]  ChromaDB (índice vectorial)  +  Ollama (LLM)
+              └─► [Chat RAG]  fichas_pokemon.json (búsqueda por términos)  +  LLM (Ollama)
 ```
 
 | Componente | Tecnología | Función |
 |---|---|---|
 | Frontend | **Streamlit** | Interfaz web (gráficos con Plotly) |
 | Backend de datos | **TiDB Cloud** (MySQL) | Almacén de los 151 Pokémon en la nube |
-| Búsqueda semántica | **ChromaDB** | Índice vectorial de las fichas de los Pokémon |
+| Recuperación RAG | **fichas_pokemon.json** | Búsqueda por coincidencia de términos sobre las fichas (funciona en local y en la nube) |
 | LLM | **Ollama** | Modelo de chat en local (`qwen3.5:latest`) o en la nube (`gpt-oss:120b` con API key) |
-| Embeddings | **embeddinggemma** (Ollama) | Vectorización de fichas y preguntas |
 
 ---
 
@@ -49,13 +48,12 @@ app.py  ──►  TiDB Cloud (base de datos en la nube) ──►  pokemon.csv 
 ```
 .
 ├── app.py                  # Aplicación Streamlit (punto de entrada)
-├── preparar_corpus.py      # Crea las fichas y el índice vectorial (se ejecuta una vez)
+├── preparar_corpus.py      # Crea las fichas de texto (se ejecuta una vez)
 ├── subir_datos.py          # Sube los datos a TiDB Cloud (se ejecuta una vez)
-├── fichas_pokemon.json     # Fichas en texto de los 151 Pokémon (generado)
+├── fichas_pokemon.json     # Fichas en texto de los 151 Pokémon (usadas por el chat)
 ├── requirements.txt        # Dependencias de Python
 ├── secrets_ejemplo.toml    # Plantilla de credenciales (sin datos reales)
 ├── .streamlit/secrets.toml # Credenciales reales (NO se sube a git)
-├── chroma_pokedex/         # Índice vectorial (NO se sube a git)
 └── pokemon.csv             # Datos originales (eliminado: ahora viven en la nube)
 ```
 
@@ -65,11 +63,7 @@ app.py  ──►  TiDB Cloud (base de datos en la nube) ──►  pokemon.csv 
 
 ### 1. Requisitos previos
 - Python 3.10+ 
-- [Ollama](https://ollama.com) instalado y corriendo (`ollama serve`) con los modelos:
-  ```bash
-  ollama pull qwen3.5:latest
-  ollama pull embeddinggemma
-  ```
+- [Ollama](https://ollama.com) instalado y corriendo (`ollama serve`) — solo necesario para el modelo de chat local. El chat en la nube solo necesita la `OLLAMA_API_KEY`.
 - Una cuenta en [TiDB Cloud](https://tidbcloud.com) con un cluster **Serverless** creado.
 
 ### 2. Instalar dependencias
@@ -100,9 +94,9 @@ database = "pokedex"
 python subir_datos.py      # imprime: Filas cargadas: 151
 ```
 
-### 5. Preparar el índice del chat (una vez)
+### 5. Preparar las fichas del chat (una vez)
 ```bash
-python preparar_corpus.py  # descarga descripciones, genera fichas e indexa en ChromaDB
+python preparar_corpus.py  # genera fichas_pokemon.json leyendo los datos de TiDB Cloud
 ```
 
 ### 6. Arrancar la app
@@ -129,9 +123,9 @@ streamlit run app.py
 | Error SSL al conectar | Añade `ssl_ca=certifi.where()` a la conexión (ya está en el código). |
 | `Access denied` | El usuario de TiDB se usa **completo**, con su prefijo: `PREFIJO.pokedex_app`. |
 | La app en Cloud no conecta, pero en local sí | Revisa que pegaste los secrets con la cabecera `[tidb]` incluida. |
-| Chat: `model not found` | Descarga el modelo: `ollama pull qwen3.5:latest`. |
-| Chat: no contacta con el modelo | Comprueba que Ollama está corriendo (`ollama serve`). |
-| No se encuentra el índice vectorial | Ejecuta `python preparar_corpus.py`. |
+| Chat en la nube: no responde | Asegúrate de que `OLLAMA_API_KEY` esté en los secrets (Settings → Secrets). Sin ella, el chat intenta usar Ollama local, que no existe en la nube. |
+| Chat: `model not found` | Descarga el modelo local: `ollama pull qwen3.5:latest`. |
+| Chat local: no contacta con el modelo | Comprueba que Ollama está corriendo (`ollama serve`). |
 
 ---
 

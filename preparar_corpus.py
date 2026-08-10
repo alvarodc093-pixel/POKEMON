@@ -1,21 +1,16 @@
 # preparar_corpus.py
 # ------------------
-# Prepara el "conocimiento" del chat de la Pokedex. Se ejecuta UNA vez antes de arrancar la app:
+# Prepara el "conocimiento" del chat de la Pokedex. Se ejecuta UNA vez:
 #
 #   python preparar_corpus.py
 #
 # Hace tres cosas, en este orden:
-#   1. Lee pokemon.csv y construye una FICHA de texto por pokemon (sus stats, en frases).
-#   2. Enriquece cada ficha con la descripcion oficial en castellano de la PokeAPI
-#      (el texto que sale en los juegos cuando capturas al pokemon).
-#   3. Vectoriza las fichas con embeddinggemma (Ollama en local) y las indexa en ChromaDB.
-#
-# El resultado queda en:
-#   - fichas_pokemon.json  -> las fichas en texto (por si quieres verlas o rehacer el indice)
-#   - chroma_pokedex/      -> el indice vectorial que usara la app
+#   1. Lee los datos de TiDB Cloud y construye una FICHA de texto por pokemon (sus stats).
+#   2. Enriquece cada ficha con la descripcion oficial en castellano de la PokeAPI.
+#   3. Guarda todo en fichas_pokemon.json (lo que usa el chat de la app).
 #
 # Si fichas_pokemon.json ya existe, se salta la descarga (la PokeAPI son 151 peticiones,
-# mejor no repetirlas sin necesidad) y va directo a indexar.
+# mejor no repetirlas sin necesidad).
 
 import json
 import time
@@ -23,15 +18,12 @@ import tomllib
 from pathlib import Path
 
 import certifi
-import chromadb
 import mysql.connector
-import ollama
 import pandas as pd
 import requests
 
 CARPETA = Path(__file__).parent
 FICHERO_FICHAS = CARPETA / "fichas_pokemon.json"
-MODELO_EMBEDDINGS = "embeddinggemma"
 
 
 def leer_pokemon():
@@ -72,16 +64,16 @@ def descargar_descripcion(id_pokemon, sesion):
 
 
 def construir_fichas():
-    """Crea la lista de fichas: una por pokemon, con sus datos del CSV + su descripcion."""
+    """Crea la lista de fichas: una por pokemon, con sus datos de la nube + su descripcion."""
     df = leer_pokemon()
     sesion = requests.Session()  # reutiliza la conexion: 151 peticiones mucho mas rapidas
     fichas = []
 
     for _, p in df.iterrows():
-        # Los tipos: type_2 puede ser NaN (pokemon de un solo tipo)
+        # Los tipos: type_2 puede ser None (pokemon de un solo tipo)
         tipos = p["type_1"] if pd.isna(p["type_2"]) else f"{p['type_1']} y {p['type_2']}"
 
-        # La ficha es TEXTO en frases, no una tabla: los embeddings entienden frases.
+        # La ficha es TEXTO en frases, no una tabla: asi la entiende el chat.
         # Metemos el nombre varias veces para que la ficha sea inequivoca por si sola.
         ficha = (
             f"{p['name']} es el pokemon numero {int(p['id'])}. "
@@ -105,37 +97,9 @@ def construir_fichas():
     return fichas
 
 
-def indexar(fichas):
-    """Vectoriza las fichas y las guarda en ChromaDB (carpeta chroma_pokedex)."""
-    cliente = chromadb.PersistentClient(path=str(CARPETA / "chroma_pokedex"))
-    coleccion = cliente.get_or_create_collection(
-        name="fichas_pokemon",
-        metadata={"hnsw:space": "cosine"},  # comparar vectores con similitud coseno
-    )
-
-    # Vectorizamos por lotes de 32: una peticion por lote a Ollama en vez de 151 sueltas
-    for inicio in range(0, len(fichas), 32):
-        lote = fichas[inicio : inicio + 32]
-        # El prefijo "title/text" es el formato con el que se entreno embeddinggemma
-        # para DOCUMENTOS (las preguntas llevan otro prefijo, eso va en la app)
-        textos_con_prefijo = [f"title: none | text: {f['texto']}" for f in lote]
-        vectores = ollama.embed(model=MODELO_EMBEDDINGS, input=textos_con_prefijo)["embeddings"]
-
-        coleccion.upsert(
-            ids=[f"pokemon_{f['id']}" for f in lote],          # id unico por pokemon
-            embeddings=vectores,                                # su vector
-            documents=[f["texto"] for f in lote],               # la ficha original
-            metadatas=[{"nombre": f["nombre"]} for f in lote],  # para citar la fuente
-        )
-        print(f"  indexadas {min(inicio + 32, len(fichas))}/{len(fichas)}")
-
-    return coleccion.count()
-
-
 if __name__ == "__main__":
     if FICHERO_FICHAS.exists():
-        print(f"Ya existe {FICHERO_FICHAS.name}: uso las fichas guardadas (borralo para re-descargar)")
-        fichas = json.loads(FICHERO_FICHAS.read_text(encoding="utf-8"))
+        print(f"Ya existe {FICHERO_FICHAS.name}: no hago nada. Borralo para regenerar las fichas.")
     else:
         print("Descargando descripciones de la PokeAPI (un par de minutos)...")
         inicio = time.time()
@@ -143,8 +107,5 @@ if __name__ == "__main__":
         FICHERO_FICHAS.write_text(
             json.dumps(fichas, ensure_ascii=False, indent=2), encoding="utf-8"
         )
-        print(f"Fichas guardadas en {FICHERO_FICHAS.name} ({time.time() - inicio:.0f} s)")
-
-    print("Indexando en ChromaDB...")
-    total = indexar(fichas)
-    print(f"Listo: {total} fichas indexadas en chroma_pokedex/. Ya puedes arrancar la app.")
+        print(f"Listo: {len(fichas)} fichas guardadas en {FICHERO_FICHAS.name} "
+              f"({time.time() - inicio:.0f} s). Ya puedes arrancar la app.")
