@@ -266,8 +266,17 @@ def responder(pregunta, fichas):
         try:
             respuesta = cliente.chat(model=modelo, messages=mensajes, think=False, options={"temperature": 0})
         except ollama.ResponseError:
-            # Algunos modelos locales no aceptan think=False: reintentamos sin el parametro
+            # Algunos modelos no aceptan think=False: reintentamos sin el parametro
             respuesta = cliente.chat(model=modelo, messages=mensajes, options={"temperature": 0})
+
+    except ollama.ResponseError as e:
+        # Error del servidor de modelos: mostramos el detalle real (401 = API key mala)
+        st.error(
+            f"El servidor de modelos rechazo la peticion (HTTP {e.status_code}). "
+            "Revisa tu `OLLAMA_API_KEY` en Settings -> Secrets: debe ser completa "
+            "(`prefijo.secreto`) y sin espacios."
+        )
+        return "No he podido contactar con el servidor de modelos. Revisa la API key."
 
     except Exception as e:
         # Ollama local caido / no se puede hablar con el servidor de modelos
