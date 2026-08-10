@@ -1,5 +1,3 @@
-from email.mime import message
-
 import certifi
 import chromadb
 import mysql.connector
@@ -11,6 +9,45 @@ import pandas as pd
 import plotly.graph_objects as go
 
 st.set_page_config(page_title="Pokedex", page_icon=":pokeball:", layout="wide")
+
+# Estilos CSS para el hero de la portada y las pildoras de tipo
+st.markdown("""
+<style>
+.hero {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-radius: 1.2rem;
+    background: linear-gradient(135deg, #1e293b 0%, #3b0764 100%);
+    margin-bottom: 1rem;
+}
+.hero img {
+    width: 180px;
+    margin-bottom: 0.4rem;
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.4));
+}
+.hero h1 {
+    font-size: 2.6rem;
+    margin: 0.2rem 0;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.hero p {
+    color: #cbd5e1;
+    font-size: 1.05rem;
+    margin: 0;
+}
+.badge {
+    display: inline-block;
+    padding: 0.15em 0.7em;
+    margin: 0.1em 0.2em 0.1em 0;
+    border-radius: 999px;
+    background: #334155;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+</style>
+""", unsafe_allow_html=True)
 
 STATS = ["hp", "attack", "defense", "special_attack", "special_defense", "speed"]
 COLOR_TIPO = {
@@ -50,12 +87,20 @@ def badge_html(tipo):                                # 'píldora' HTML con el no
     return f'<span class="badge">{tipo}</span>' if pd.notna(tipo) else ""  # "" si el tipo es nulo
 
 
+def conectar():
+    """Abre una conexion al cluster TiDB con las credenciales de st.secrets"""
+    return mysql.connector.connect(**st.secrets["tidb"], ssl_ca=certifi.where())
+
+
 @st.cache_data
 def cargar():
-    conn = mysql.connector.connect(**st.secrets["tidb"], ssl_ca=certifi.where())
-    df = pd.read_sql("SELECT * FROM pokemon;", conn)
+    conn = conectar()
+    cur = conn.cursor(dictionary=True)
+    cur.execute("SELECT * FROM pokemon;")
+    filas = cur.fetchall()
+    cur.close()
     conn.close()
-    return df
+    return pd.DataFrame(filas)
 
 df = cargar()
 
@@ -210,14 +255,75 @@ with tab_versus:
 
 
 with tab_inicio:
-    # f""" ... """ -> f-string multilínea: {len(df)} se sustituye por el número real (151, 386...)
-    # -> el texto se adapta solo si cambias N. unsafe_allow_html=True para que pinte el HTML del banner.
+    # Hero de portada: imagen de Pikachu + titulo
+    pikachu = df[df["name"] == "Pikachu"].iloc[0] if (df["name"] == "Pikachu").any() else df.iloc[0]
     st.markdown(f"""
     <div class="hero">
+      <img src="{pikachu['sprite']}" alt="{pikachu['name']}">
       <h1>🔴 Pokédex</h1>
-      <p>Los primeros {len(df)} Pokémon · datos de la PokéAPI · hecho con Streamlit</p>
+      <p>Los {len(df)} Pokémon originales de Kanto · datos de la PokéAPI · desde TiDB Cloud</p>
     </div>
     """, unsafe_allow_html=True)
+
+    # Fila de metricas
+    legendarios = int(df["legendary"].sum())
+    tipos = int(df["type_1"].nunique())
+    media_total = int(df["total"].mean())
+    c_met = st.columns(4, border=True)
+    c_met[0].metric("Pokémon registrados", len(df))
+    c_met[1].metric("Legendarios", legendarios)
+    c_met[2].metric("Tipos distintos", tipos)
+    c_met[3].metric("Total medio de stats", media_total)
+
+    # Dos tarjetas: distribucion por tipo + legendarios
+    col_izq, col_der = st.columns(2)
+    with col_izq:
+        with st.container(border=True):
+            st.subheader("Distribución por tipo")
+            conteo_tipos = df["type_1"].value_counts().sort_index()
+            fig_tipos = go.Figure(go.Bar(
+                x=conteo_tipos.index,
+                y=conteo_tipos.values,
+                marker_color=[COLOR_TIPO.get(t, "#A8A77A") for t in conteo_tipos.index],
+            ))
+            fig_tipos.update_layout(template="plotly_dark", height=300,
+                                    xaxis_title="Tipo", yaxis_title="Nº de Pokémon")
+            st.plotly_chart(fig_tipos, width="stretch")
+
+    with col_der:
+        with st.container(border=True):
+            st.subheader("Comunes vs. legendarios")
+            fig_ley = go.Figure(go.Pie(
+                labels=["Común", "Legendario"],
+                values=[len(df) - legendarios, legendarios],
+                hole=0.5,
+                marker_colors=["#6390F0", "#F7D02C"],
+            ))
+            fig_ley.update_layout(template="plotly_dark", height=300, showlegend=True)
+            st.plotly_chart(fig_ley, width="stretch")
+
+    # Tarjeta: los mas poderosos
+    with st.container(border=True):
+        st.subheader("Los más poderosos")
+        top5 = df.nlargest(5, "total")[["name", "total", "type_1"]]
+        fig_top = go.Figure(go.Bar(
+            x=top5["name"],
+            y=top5["total"],
+            marker_color=["#F7D02C", "#C0C0C0", "#CD7F32", "#EE8130", "#6390F0"],
+        ))
+        fig_top.update_layout(template="plotly_dark", height=300,
+                              xaxis_title="Pokémon", yaxis_title="Total de stats")
+        st.plotly_chart(fig_top, width="stretch")
+
+    # Guia rapida de la app
+    with st.container(border=True):
+        st.subheader("¿Qué puedes hacer aquí?")
+        st.markdown("""
+        - **:material/grid_view: Pokedex** — Explora todos los Pokémon en tarjetas y filtra por tipo, nombre o stats.
+        - **:material/description: Ficha** — Elige un Pokémon y consulta su hoja de stats en un radar.
+        - **:material/compare_arrows: Comparador** — Enfrenta dos Pokémon y descubre quién domina.
+        - **:material/chat: Chat** — Pregunta a la Pokédex con IA (respuestas basadas en las fichas).
+        """)
 
 
 with tab_chat:
