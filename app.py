@@ -240,6 +240,8 @@ def elegir_llm():
     except FileNotFoundError:
         api_key = ""
 
+    api_key = api_key.strip()  # elimina espacios/saltos que puedan colarse al copiar/pegar
+
     if api_key:
         cliente = Client(
             host="https://ollama.com",
