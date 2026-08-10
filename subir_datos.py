@@ -1,11 +1,13 @@
 # subir_datos.py
 # ---------------
-# Sube pokemon.csv a TiDB Cloud. Se ejecuta UNA vez (aunque es re-ejecutable):
+# Sube los datos de la Pokedex a TiDB Cloud. Se ejecuta UNA vez (es re-ejecutable):
 #
 #   python subir_datos.py
 #
-# Las credenciales NO estan escritas aqui: se leen de .streamlit/secrets.toml
-# (seccion [tidb]), que esta en el .gitignore y nunca se sube al repositorio.
+# Necesita permisos de escritura en el cluster, por lo que usa el apartado
+# [tidb_admin] de secrets.toml (usuario root). Si no existe, usa [tidb].
+# Las credenciales NUNCA van escritas en el codigo: viven en .streamlit/secrets.toml,
+# que esta en el .gitignore y no se sube al repositorio.
 
 import tomllib
 from pathlib import Path
@@ -17,14 +19,36 @@ import pandas as pd
 CARPETA = Path(__file__).parent
 
 # 1. Credenciales desde secrets.toml (fuera del codigo)
+#    Para escribir necesitamos el usuario root: seccion [tidb_admin].
 secretos = tomllib.loads((CARPETA / ".streamlit" / "secrets.toml").read_text(encoding="utf-8"))
-tidb = secretos["tidb"]
+tidb = secretos.get("tidb_admin") or secretos["tidb"]
 
-# 2. Leer el CSV de siempre
-df = pd.read_csv(CARPETA / "pokemon.csv")
 
-# 3. legendary es booleano en el CSV -> entero para la BD
-df["legendary"] = df["legendary"].astype(int)
+# 2. Conectar para traer el origen de datos (CSV local o tabla existente en la nube)
+conn_origen = mysql.connector.connect(
+    host=tidb["host"],
+    port=tidb["port"],
+    user=tidb["user"],
+    password=tidb["password"],
+    database=tidb["database"],
+    ssl_ca=certifi.where(),
+    ssl_verify_cert=True,
+    ssl_verify_identity=True,
+)
+cur_origen = conn_origen.cursor(dictionary=True)
+
+csv_local = CARPETA / "pokemon.csv"
+if csv_local.exists():
+    print("Origen: pokemon.csv local")
+    df = pd.read_csv(csv_local)
+    df["legendary"] = df["legendary"].astype(int)
+else:
+    print("Origen: tabla pokemon ya existente en la nube")
+    cur_origen.execute("SELECT * FROM pokemon;")
+    df = pd.DataFrame(cur_origen.fetchall())
+
+cur_origen.close()
+conn_origen.close()
 
 
 def limpiar(valor):
