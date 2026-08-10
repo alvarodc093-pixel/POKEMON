@@ -144,7 +144,8 @@ def elegir_llm():
         )   
         return cliente, MODELO_CLOUD, f"{MODELO_CLOUD} (nube)"
 
-    return None, MODELO_LOCAL, f"{MODELO_LOCAL} (local)"
+    cliente = Client(host="http://localhost:11434")  # Ollama local en su puerto por defecto
+    return cliente, MODELO_LOCAL, f"{MODELO_LOCAL} (local)"
 
 def responder(pregunta, fichas):
     """Genera la respuesta a la pregunta usando las fichas como contexto"""
@@ -157,10 +158,17 @@ def responder(pregunta, fichas):
         {"role": "user", "content": prompt},
     ]
     try:
-        respuesta = cliente.chat(model=modelo, messages=mensajes, think=False, options={"temperature": 0})
+        try:
+            respuesta = cliente.chat(model=modelo, messages=mensajes, think=False, options={"temperature": 0})
+        except ollama.ResponseError:
+            # Algunos modelos locales no aceptan think=False: reintentamos sin el parametro
+            respuesta = cliente.chat(model=modelo, messages=mensajes, options={"temperature": 0})
 
-    except ollama.ResponseError as e:
-       respuesta = cliente.chat(model=modelo, messages=mensajes, options={"temperature": 0})
+    except Exception as e:
+        # Ollama local caido / no se puede hablar con el servidor de modelos
+        st.warning("No se ha podido contactar con el modelo de chat. Si usas el modelo local, "
+                   f"comprueba que `ollama serve` este corriendo. Detalle: {type(e).__name__}")
+        return "Lo siento, no he podido generar una respuesta ahora mismo."
 
     return respuesta["message"]["content"]
 
