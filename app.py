@@ -62,7 +62,7 @@ COLOR_TIPO = {
 MODELO_EMBEDDINGS = "embeddinggemma"
 MODELO_CLOUD = "gpt-oss:120b"
 
-MODELO_LOCAL = "qwen3.5:2b-mlx"
+MODELO_LOCAL = "qwen3.5:latest"
 
 K_FICHAS = 4
 
