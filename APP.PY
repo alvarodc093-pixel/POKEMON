@@ -1,6 +1,8 @@
 from email.mime import message
 
+import certifi
 import chromadb
+import mysql.connector
 import ollama
 from ollama import Client
 import streamlit as st
@@ -50,7 +52,10 @@ def badge_html(tipo):                                # 'píldora' HTML con el no
 
 @st.cache_data
 def cargar():
-    return pd.read_csv(Path(__file__).parent / "pokemon.csv")
+    conn = mysql.connector.connect(**st.secrets["tidb"], ssl_ca=certifi.where())
+    df = pd.read_sql("SELECT * FROM pokemon;", conn)
+    conn.close()
+    return df
 
 df = cargar()
 
