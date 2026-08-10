@@ -19,9 +19,12 @@
 
 import json
 import time
+import tomllib
 from pathlib import Path
 
+import certifi
 import chromadb
+import mysql.connector
 import ollama
 import pandas as pd
 import requests
@@ -29,6 +32,18 @@ import requests
 CARPETA = Path(__file__).parent
 FICHERO_FICHAS = CARPETA / "fichas_pokemon.json"
 MODELO_EMBEDDINGS = "embeddinggemma"
+
+
+def leer_pokemon():
+    """Lee los pokemon desde TiDB Cloud (las credenciales viven en secrets.toml)."""
+    secretos = tomllib.loads((CARPETA / ".streamlit" / "secrets.toml").read_text(encoding="utf-8"))
+    conn = mysql.connector.connect(**secretos["tidb"], ssl_ca=certifi.where())
+    cur = conn.cursor(dictionary=True)
+    cur.execute("SELECT * FROM pokemon;")
+    filas = cur.fetchall()
+    cur.close()
+    conn.close()
+    return pd.DataFrame(filas)
 
 
 def descargar_descripcion(id_pokemon, sesion):
@@ -58,7 +73,7 @@ def descargar_descripcion(id_pokemon, sesion):
 
 def construir_fichas():
     """Crea la lista de fichas: una por pokemon, con sus datos del CSV + su descripcion."""
-    df = pd.read_csv(CARPETA / "pokemon.csv")
+    df = leer_pokemon()
     sesion = requests.Session()  # reutiliza la conexion: 151 peticiones mucho mas rapidas
     fichas = []
 
