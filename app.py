@@ -245,6 +245,18 @@ with tab_versus:
     pa = df[df["name"] == n1].iloc[0]                # fila del Pokémon A
     pb = df[df["name"] == n2].iloc[0]                # fila del Pokémon B
 
+    # Tarjetas con las imagenes de los dos contendientes
+    for col, p, color in [(c1, pa, "#EE8130"), (c2, pb, "#6390F0")]:
+        with col:
+            st.markdown(f"""
+            <div style="text-align:center; border:3px solid {color}; border-radius:1rem; padding:0.8rem; background:rgba(255,255,255,0.04);">
+              <img src="{p['sprite']}" style="width:150px; display:block; margin:0 auto;">
+              <div style="font-size:1.15rem; font-weight:700;">{int(p['id']):03d} - {p['name']}</div>
+            </div>
+            """, unsafe_allow_html=True)
+            tipos_txt = " · ".join([t for t in [p["type_1"], p["type_2"]] if pd.notna(t)])
+            st.caption(f"Tipo: {tipos_txt} · Total: {int(p['total'])}")
+
     fig = go.Figure()                                # figura VACÍA; le añadiremos 2 radares
     for p, color in [(pa, "#EE8130"), (pb, "#6390F0")]:   # recorre los dos Pokémon, cada uno con su color
         valores = [float(p[s]) for s in STATS]
