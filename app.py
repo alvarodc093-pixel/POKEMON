@@ -504,14 +504,3 @@ with tab_chat:
 
 
 
-
- with tab_inicio:
-    # Hero de portada: imagen de Pikachu + titulo
-    pikachu = df[df["name"] == "Pikachu"].iloc[0] if (df["name"] == "Pikachu").any() else df.iloc[0]
-    st.markdown(f"""
-    <div class="hero">
-      <img src="{pikachu['sprite']}" alt="{pikachu['name']}">
-      <h1>🔴 Pokédex</h1>
-      <p>Los {len(df)} Pokémon originales de Kanto · datos de la PokéAPI · desde TiDB Cloud</p>
-    </div>
-    """, unsafe_allow_html=True)
