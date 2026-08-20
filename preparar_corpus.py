@@ -109,3 +109,36 @@ if __name__ == "__main__":
         )
         print(f"Listo: {len(fichas)} fichas guardadas en {FICHERO_FICHAS.name} "
               f"({time.time() - inicio:.0f} s). Ya puedes arrancar la app.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+def leer_pokemon():
+    """Lee los pokemon desde TiDB Cloud (las credenciales viven en secrets.toml)."""
+    secretos = tomllib.loads((CARPETA / ".streamlit" / "secrets.toml").read_text(encoding="utf-8"))
+    conn = mysql.connector.connect(**secretos["tidb"], ssl_ca=certifi.where())
+    cur = conn.cursor(dictionary=True)
+    cur.execute("SELECT * FROM pokemon;")
+    filas = cur.fetchall()
+    cur.close()
+    conn.close()
+    return pd.DataFrame(filas)
+def leer_pokemon():
+    """Lee los pokemon desde TiDB Cloud (las credenciales viven en secrets.toml)."""
+    secretos = tomllib.loads((CARPETA / ".streamlit" / "secrets.toml").read_text(encoding="utf-8"))
+    conn = mysql.connector.connect(**secretos["tidb"], ssl_ca=certifi.where())
+    cur = conn.cursor(dictionary=True)
+    cur.execute("SELECT * FROM pokemon;")
+    filas = cur.fetchall()
+    cur.close()
+    conn.close()
+    return pd.DataFrame(filas)
